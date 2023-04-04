@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent enemyAgent;
+    public float enemyHealth;
+    public GameObject enemyProjectile;
 
     public Transform player;
 
@@ -17,26 +20,26 @@ public class EnemyAI : MonoBehaviour
     public bool walkPointSet;
     public float walkPointRange;
 
-    /*
+
     // Attacking 
     public float timeBetweenAttacks;
     public bool alreadyAttacked;
     // For now this will just be destroy object on collison enter.
-    */
 
     // States 
     public float sightRange;
     public float attackRange;
     public bool playerInSightRange;
-    //public bool playerInAttackRange;
+    public bool playerInAttackRange;
+    public bool playerInvisible;
 
 
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Updated 3rd Person Player").transform;
         enemyAgent = GetComponent<NavMeshAgent>();
-        
+
     }
 
     // Update is called once per frame
@@ -44,28 +47,23 @@ public class EnemyAI : MonoBehaviour
     {
         // Checking for player sight range.
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
 
-        if (!playerInSightRange)
+        if (!playerInSightRange && !playerInAttackRange)
         {
             Patrolling();
         }
-        else if (playerInSightRange)
+        if (playerInSightRange && !playerInAttackRange)
         {
             ChasePlayer();
         }
-    }
-
-    private void SearchWalkPoint()
-    {
-        // Find random point in rage
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
+        if (playerInSightRange && playerInvisible)
         {
-            walkPointSet = true;
+            IgnorePlayer();
+        }
+        else if (playerInAttackRange && playerInSightRange)
+        {
+            AttackPlayer();
         }
     }
 
@@ -83,10 +81,24 @@ public class EnemyAI : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // Don't rape player 
+        // Walkpoint Reached  
         if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
+        }
+    }
+
+    private void SearchWalkPoint()
+    {
+        // Find random point in rage
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
+        {
+            walkPointSet = true;
         }
     }
 
@@ -96,11 +108,39 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    /*
-    // Still figuring out what the final attack mechanics will be
     private void AttackPlayer()
     {
+        enemyAgent.SetDestination(transform.position);
 
+        transform.LookAt(player);
+
+        if (!alreadyAttacked)
+        {
+            // Add Enemy Attack Code
+            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
     }
-    */
+
+    void ResetAttack()
+    {
+        alreadyAttacked = false;
+    }
+
+
+    public void DisableEnemy()
+    {
+        // Code to stop enemy movement or destroy the enemy
+        Destroy(gameObject);
+    }
+
+    public void IgnorePlayer()
+    {
+        enemyAgent.SetDestination(-player.position);
+    }
+
 }

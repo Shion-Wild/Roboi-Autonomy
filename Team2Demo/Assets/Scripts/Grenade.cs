@@ -43,28 +43,28 @@ public class Grenade : MonoBehaviour
         foreach (Collider nearbyObject in colliders)
         {
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-
-            // Collect AI Script to call on "Walk Point Set"
-            EnemyAI agentScript = nearbyObject.GetComponent<EnemyAI>();
+            EnemyAI enemyScript = nearbyObject.GetComponent<EnemyAI>();
 
             if (rb != null)
             {
                 rb.AddExplosionForce(force, transform.position, radius);
-                // Disable "Walk Point Set, wait timer, then enable walkpoint."
-                agentScript.walkPointSet = false;
-                StartCoroutine(EMPShutdown());
-                agentScript.walkPointSet = true;
+
+                enemyScript.DisableEnemy();
             }
+
         }
 
         Destroy(gameObject);
     }
 
+
+    /*
     public IEnumerator EMPShutdown() 
     {
         yield return new WaitForSeconds(empDowntime);
 
 
     }
+    */
 
 }
