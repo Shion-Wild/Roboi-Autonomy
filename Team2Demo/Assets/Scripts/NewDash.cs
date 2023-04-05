@@ -9,6 +9,7 @@ public class NewDash : MonoBehaviour
     public Transform playerCam;
     private Rigidbody rb;
     private PlayerMovementUpdated pm;
+    PlayerMovementUpdated playerScript;
 
     [Header("Dashing")]
     public float dashForce;
@@ -26,6 +27,7 @@ public class NewDash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovementUpdated>();
+        playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
     }
 
     private void Update()
@@ -41,6 +43,8 @@ public class NewDash : MonoBehaviour
         Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpwardForce;
 
         rb.AddForce(forceToApply, ForceMode.Impulse);
+
+        playerScript.PlayDash();
 
     }
 }

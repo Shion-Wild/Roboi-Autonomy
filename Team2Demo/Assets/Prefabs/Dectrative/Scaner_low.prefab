@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9044406725453978249}
   - component: {fileID: 6512443340339179075}
   - component: {fileID: 8661324799929667036}
+  - component: {fileID: 961351361515410881}
   m_Layer: 0
   m_Name: Scaner_low
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 0}
+--- !u!65 &961351361515410881
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710805645306744726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 605.62885, y: 720.1499, z: 515.5885}
+  m_Center: {x: 300.00003, y: 360.07495, z: -252.16545}
 --- !u!1 &8617933206040280007
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,13 @@ public class GrenadeThrower : MonoBehaviour
     public GameObject grenadePrefab;
     Vector3 empOrigin;
 
+    PlayerMovementUpdated playerScript;
 
+    void Start()
+    {
+        playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,5 +31,7 @@ public class GrenadeThrower : MonoBehaviour
         GameObject grenade = Instantiate(grenadePrefab, transform.position, transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
+        playerScript.PlayEMP();
+
     }
 }

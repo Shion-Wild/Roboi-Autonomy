@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7064344589301645916}
   - component: {fileID: 5038789868509460118}
   - component: {fileID: 6116412555600634958}
+  - component: {fileID: 122368905188666460}
   m_Layer: 0
   m_Name: floor_raised
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 0}
+--- !u!65 &122368905188666460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840295759187302211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 900, y: 225, z: 899.99994}
+  m_Center: {x: -450.00006, y: 112.5, z: 450.00095}
 --- !u!1 &7740726129709228654
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Invisibility : MonoBehaviour
 {
     Renderer playerRenderer;
     EnemyAI enemyScript;
+    PlayerMovementUpdated playerScript;
 
     public Material invisibleMaterial;
     public Material normalMaterial;
@@ -19,6 +20,8 @@ public class Invisibility : MonoBehaviour
     {
         playerRenderer = GameObject.Find("Robot_low").GetComponent<MeshRenderer>();
         enemyScript = GameObject.Find("Enemy").GetComponent<EnemyAI>();
+
+        playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class Invisibility : MonoBehaviour
         {
             //InvisibleAbility();
 
-            StartCoroutine(Invis(3f));
+            StartCoroutine(Invis(4f));
         }
 
     }
@@ -52,6 +55,7 @@ public class Invisibility : MonoBehaviour
 
         playerRenderer.material = invisibleMaterial;
         enemyScript.playerInvisible = true;
+        playerScript.PlayInvisibility();
 
         yield return new WaitForSeconds(duration);
 

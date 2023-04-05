@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,8 @@ public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent enemyAgent;
     public float enemyHealth;
-    public GameObject enemyProjectile;
+    //public GameObject enemyProjectile;
+    PlayerMovementUpdated playerScript;
 
     public Transform player;
 
@@ -33,7 +35,11 @@ public class EnemyAI : MonoBehaviour
     public bool playerInAttackRange;
     public bool playerInvisible;
 
+    void Start()
+    {
+        playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
 
+    }
 
     void Awake()
     {
@@ -117,12 +123,12 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             // Add Enemy Attack Code
-            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            //Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            //alreadyAttacked = true;
+            //Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
@@ -141,6 +147,16 @@ public class EnemyAI : MonoBehaviour
     public void IgnorePlayer()
     {
         enemyAgent.SetDestination(-player.position);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerScript.PlayDeath();
+            Debug.Log("Player is Dead");
+        }
+        
     }
 
 }

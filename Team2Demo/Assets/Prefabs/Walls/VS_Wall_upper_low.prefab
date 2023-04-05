@@ -77,6 +77,8 @@ GameObject:
   - component: {fileID: 6431559672887023724}
   - component: {fileID: 9125852209101696166}
   - component: {fileID: 762865421680665647}
+  - component: {fileID: 5321968001575658044}
+  - component: {fileID: -6225773352381610923}
   m_Layer: 0
   m_Name: VS_Wall_upper_low
   m_TagString: Untagged
@@ -167,3 +169,32 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 0}
+--- !u!65 &5321968001575658044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324390435807808883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 850, y: 3000, z: 2400}
+  m_Center: {x: -425, y: 1500, z: -1200}
+--- !u!114 &-6225773352381610923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324390435807808883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

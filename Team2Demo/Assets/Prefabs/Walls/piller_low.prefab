@@ -77,6 +77,8 @@ GameObject:
   - component: {fileID: 1275970620900404879}
   - component: {fileID: 3914155623134698053}
   - component: {fileID: 2352257820627272408}
+  - component: {fileID: 4300729982800147865}
+  - component: {fileID: 1082972769838449489}
   m_Layer: 0
   m_Name: piller_low
   m_TagString: Untagged
@@ -167,3 +169,33 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 0}
+--- !u!136 &4300729982800147865
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265430500250303376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 318.1128
+  m_Height: 1329.225
+  m_Direction: 1
+  m_Center: {x: 0, y: 664.6125, z: 318.11276}
+--- !u!114 &1082972769838449489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265430500250303376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

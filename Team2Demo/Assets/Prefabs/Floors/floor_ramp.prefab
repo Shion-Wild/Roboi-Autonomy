@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4432005774572121676}
   - component: {fileID: 1902017182133983878}
   - component: {fileID: -2611444678987281335}
+  - component: {fileID: 4104241757099553835}
   m_Layer: 0
   m_Name: floor_ramp
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 0}
+--- !u!65 &4104241757099553835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100678968191400787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 900, y: 225, z: 900}
+  m_Center: {x: -450, y: 112.5, z: 450.00006}
 --- !u!1 &8891760920288421383
 GameObject:
   m_ObjectHideFlags: 0
