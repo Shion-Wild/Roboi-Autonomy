@@ -118,7 +118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8247720608183602717
 Transform:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ ReflectionProbe:
   m_BoxSize: {x: 28.97005, y: 10.650421, z: 31.085064}
   m_BoxOffset: {x: 0.60357094, y: -5.3252106, z: 1.1710224}
   m_NearClip: 0.3
-  m_FarClip: 1000
+  m_FarClip: 15
   m_ShadowDistance: 100
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
