@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent enemyAgent;
     public float enemyHealth;
     //public GameObject enemyProjectile;
-    PlayerMovementUpdated playerScript;
+    //PlayerMovementUpdated playerScript;
 
     public Transform player;
 
@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
+        //playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
 
     }
 
@@ -153,7 +153,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerScript.PlayDeath();
+            //playerScript.PlayDeath();
             Debug.Log("Player is Dead");
         }
         
