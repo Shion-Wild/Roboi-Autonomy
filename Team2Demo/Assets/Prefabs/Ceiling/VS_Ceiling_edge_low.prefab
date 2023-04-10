@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3300053251632695232}
   - component: {fileID: 1901644289511753829}
   - component: {fileID: 4433521351955807407}
-  - component: {fileID: -465932465119486521}
   m_Layer: 0
   m_Name: VS_Ceiling_edge_low
   m_TagString: Untagged
@@ -84,20 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-465932465119486521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2776456380696026490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 4b76fe79cf146954c81a05e97f815e1b, type: 2}
