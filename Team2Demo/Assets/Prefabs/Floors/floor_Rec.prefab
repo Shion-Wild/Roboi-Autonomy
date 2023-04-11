@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 64970082646523481}
   - component: {fileID: 3983726784748417532}
   - component: {fileID: 1201895051822859574}
-  - component: {fileID: 5767761442716915950}
   - component: {fileID: 2803029599945032650}
   m_Layer: 7
   m_Name: floor_Rec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &64970082646523481
 Transform:
@@ -85,23 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5767761442716915950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841330211640059107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 0}
 --- !u!65 &2803029599945032650
 BoxCollider:
   m_ObjectHideFlags: 0

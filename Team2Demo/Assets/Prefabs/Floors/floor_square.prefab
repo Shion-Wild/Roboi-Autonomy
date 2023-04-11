@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 2417416815806953185}
   - component: {fileID: 461782243009511979}
   - component: {fileID: 6920068898010860786}
-  - component: {fileID: 5839495988857711828}
   m_Layer: 7
   m_Name: floor_square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &1595321400211913028
 Transform:
@@ -98,20 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 900, y: 45, z: 900}
   m_Center: {x: -450, y: 22.5, z: -450}
---- !u!114 &5839495988857711828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119059008580346878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 0}
