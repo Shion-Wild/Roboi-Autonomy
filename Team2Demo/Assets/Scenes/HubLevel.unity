@@ -2333,6 +2333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Long (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4255788761463442142, guid: 8aacbebede9424c4b8b5822f41e3ccd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aacbebede9424c4b8b5822f41e3ccd5, type: 3}
@@ -5666,12 +5671,12 @@ PrefabInstance:
     - target: {fileID: 980497622726369774, guid: 004bc6c1454b6514480fb828cace9850,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008530453
+      value: 0.000000008530453
       objectReference: {fileID: 0}
     - target: {fileID: 980497622726369774, guid: 004bc6c1454b6514480fb828cace9850,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000011163652
+      value: -0.0000000011163652
       objectReference: {fileID: 0}
     - target: {fileID: 980497622910884845, guid: 004bc6c1454b6514480fb828cace9850,
         type: 3}
@@ -6682,6 +6687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Light Long (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255788761463442142, guid: 8aacbebede9424c4b8b5822f41e3ccd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -11810,6 +11820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Light Long
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255788761463442142, guid: 8aacbebede9424c4b8b5822f41e3ccd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
