@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Grenade : MonoBehaviour
+public class EMPGrenade : MonoBehaviour
 {
 
     public float delay = 2f;
     public float force = 800f;
     public float radius = 20f;
-    public float empDowntime;
 
     // Layer Mask for EMP Testing
     public int layerMask = 1 << 9;
@@ -57,14 +56,5 @@ public class Grenade : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    /*
-    public IEnumerator EMPShutdown() 
-    {
-        yield return new WaitForSeconds(empDowntime);
-
-
-    }
-    */
 
 }

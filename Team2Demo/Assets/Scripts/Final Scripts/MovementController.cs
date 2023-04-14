@@ -9,7 +9,7 @@ public class MovementController : MonoBehaviour
     // Cached References
     PlayerInput playerInput;
     public CharacterController characterController;
-    //PlayerAbilities playerAbilities;
+    PlayerAbilities playerAbilities;
 
     // Player Input 
     Vector2 currentMovementInput;
@@ -45,7 +45,7 @@ public class MovementController : MonoBehaviour
     {
         playerInput = new PlayerInput();
         characterController = GetComponent<CharacterController>();
-        //playerAbilities = GetComponent<PlayerAbilities>();
+        playerAbilities = GetComponent<PlayerAbilities>();
 
         playerInput.CharacterControls.Move.started += OnMovementInput;
         playerInput.CharacterControls.Move.canceled += OnMovementInput;
@@ -234,7 +234,7 @@ public class MovementController : MonoBehaviour
     {
         if (isInvisibilityPressed)
         {
-            //playerAbilities.TriggerInvisibility();
+            playerAbilities.TriggerInvisibility();
         }
 
     }
@@ -250,7 +250,7 @@ public class MovementController : MonoBehaviour
     {
         if (isEMPPressed)
         {
-            //playerAbilities.ThrowEMPGrenade();
+            playerAbilities.ThrowEMPGrenade();
             isEMPPressed = false;
         }
 
@@ -268,7 +268,7 @@ public class MovementController : MonoBehaviour
     {
         if (isDashPressed)
         {
-            //playerAbilities.TriggerDash();
+            playerAbilities.TriggerDash();
         }
 
     }

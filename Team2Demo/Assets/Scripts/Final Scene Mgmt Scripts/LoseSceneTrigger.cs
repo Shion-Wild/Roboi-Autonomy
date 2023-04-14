@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoseSceneTrigger : MonoBehaviour
 {
-    PlayerMovementUpdated playerScript;
+    //PlayerMovementUpdated playerScript;
 
     /*
     void LoadNextLevel()
@@ -33,14 +33,14 @@ public class LoseSceneTrigger : MonoBehaviour
 
     void Start()
     {
-        playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
+        //playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerScript.PlayDeath();
+            //playerScript.PlayDeath();
             SceneManager.LoadScene(4);
         }
     }

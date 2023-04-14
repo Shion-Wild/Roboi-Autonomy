@@ -1,33 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] LayerMask playerMask;
+
+    // Cashed References
     public NavMeshAgent enemyAgent;
-    public float enemyHealth;
-    //public GameObject enemyProjectile;
-    //PlayerMovementUpdated playerScript;
-
     public Transform player;
-
-    public LayerMask groundMask;
-    public LayerMask playerMask;
-
-    // Patroling 
-    public Vector3 walkPoint;
-    public bool walkPointSet;
-    public float walkPointRange;
-
-
-    // Attacking 
-    public float timeBetweenAttacks;
-    public bool alreadyAttacked;
-    // For now this will just be destroy object on collison enter.
-
+    public GameObject enemyProjectile;
+    
     // States 
     public float sightRange;
     public float attackRange;
@@ -35,20 +21,26 @@ public class EnemyAI : MonoBehaviour
     public bool playerInAttackRange;
     public bool playerInvisible;
 
-    void Start()
-    {
-        //playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
+    // Patrol State
+    public Vector3 walkPoint;
+    public bool walkPointSet;
+    public float walkPointRange;
 
-    }
+    // Attack State
+    public float timeBetweenAttacks;
+    public bool alreadyAttacked;
+
+    // EMP State 
+
+    // Invisible State
+
 
     void Awake()
     {
-        player = GameObject.Find("Updated 3rd Person Player").transform;
         enemyAgent = GetComponent<NavMeshAgent>();
-
+        player = GameObject.Find("Character").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Checking for player sight range.
@@ -96,10 +88,11 @@ public class EnemyAI : MonoBehaviour
 
     private void SearchWalkPoint()
     {
-        // Find random point in rage
+        // Find random Z and X to create a new walk point
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
+        // Setting new walkpoint with random Z and X points
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, groundMask))
@@ -126,37 +119,34 @@ public class EnemyAI : MonoBehaviour
             //Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            
 
-            //alreadyAttacked = true;
-            //Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            // Cycling "alreadyAttacked" between true and false so that the enemy does not spam attacks.
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
+    
     void ResetAttack()
     {
         alreadyAttacked = false;
     }
 
 
-    public void DisableEnemy()
-    {
-        // Code to stop enemy movement or destroy the enemy
-        Destroy(gameObject);
-    }
-
     public void IgnorePlayer()
     {
         enemyAgent.SetDestination(-player.position);
     }
 
-    void OnTriggerEnter(Collider other)
+
+    
+    public void DisableEnemy()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //playerScript.PlayDeath();
-            Debug.Log("Player is Dead");
-        }
-        
+        Destroy(gameObject);
     }
+    
+
+
 
 }
