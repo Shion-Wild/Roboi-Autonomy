@@ -9,7 +9,7 @@ public class PlayerAbilities : MonoBehaviour
     // Invisibility Variables and References
     [Header("Invisibility Variables and References")]
     Renderer playerRenderer;
-    EnemyAI enemyScript;
+    //EnemyAI enemyScript;
     //EnemyCameraAI cameraAI;
     public Material invisibleMaterial;
     public Material normalMaterial;
@@ -41,7 +41,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         // Invisibility Cache
         playerRenderer = GameObject.Find("Character").GetComponent<MeshRenderer>();
-        enemyScript = GameObject.Find("Enemy").GetComponent<EnemyAI>();
+        //enemyScript = GameObject.Find("EnemyPatrolBot").GetComponent<EnemyAI>();
         //cameraAI = GameObject.Find("EnemyCamera").GetComponent<EnemyCameraAI>();
 
         // Dash 
@@ -109,13 +109,13 @@ public class PlayerAbilities : MonoBehaviour
     {
 
         playerRenderer.material = invisibleMaterial;
-        enemyScript.playerInvisible = true;
+        //enemyScript.playerInvisible = true;
         //cameraAI.playerInvisible = true;    
 
         yield return new WaitForSeconds(duration);
 
         playerRenderer.material = normalMaterial;
-        enemyScript.playerInvisible = false;
+        //enemyScript.playerInvisible = false;
         //cameraAI.playerInvisible = false;
     }
 
