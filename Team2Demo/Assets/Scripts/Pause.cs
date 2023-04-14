@@ -19,6 +19,7 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
         {
             if(isPaused)
@@ -30,6 +31,8 @@ public class Pause : MonoBehaviour
                 pauseGame();
             }
         }
+        */
+        
         
     }
 
