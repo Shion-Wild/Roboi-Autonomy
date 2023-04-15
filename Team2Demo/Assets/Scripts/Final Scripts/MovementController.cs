@@ -17,6 +17,7 @@ public class MovementController : MonoBehaviour
     Vector3 currentRunMovement;
     public Vector3 cameraRelativeMovement;
     bool isMovementPressed;
+    public float moveSpeed = 10.0f;
     //bool isRunPressed;
 
     // Constants
@@ -32,7 +33,7 @@ public class MovementController : MonoBehaviour
     bool isJumpPressed = false;
     float initialJumpVelocity;
     float maxJumpHeight = 8.0f;
-    float maxJumpTime = 1.25f;
+    float maxJumpTime = 1.2f;
     bool isJumping = false;
 
    // Trigger Abilities 
@@ -78,8 +79,8 @@ public class MovementController : MonoBehaviour
         if (!isJumping && characterController.isGrounded && isJumpPressed)
         {
             isJumping = true;
-            currentMovement.y = initialJumpVelocity * .5f;
-            currentRunMovement.y = initialJumpVelocity * .5f;
+            currentMovement.y = initialJumpVelocity * .7f;
+            currentRunMovement.y = initialJumpVelocity * .7f;
         }
         else if (!isJumpPressed && isJumping && characterController.isGrounded)
         {
@@ -123,8 +124,8 @@ public class MovementController : MonoBehaviour
     void OnMovementInput(InputAction.CallbackContext context)
     {
         currentMovementInput = context.ReadValue<Vector2>();
-        currentMovement.x = currentMovementInput.x * 10.0f;
-        currentMovement.z = currentMovementInput.y * 10.0f;
+        currentMovement.x = currentMovementInput.x * moveSpeed;
+        currentMovement.z = currentMovementInput.y * moveSpeed;
         //currentRunMovement.x = currentMovementInput.x * dashMultiplier;
         //currentRunMovement.z = currentMovementInput.y * dashMultiplier;
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
@@ -133,7 +134,7 @@ public class MovementController : MonoBehaviour
     void HandleGravity()
     {
         bool isFalling = currentMovement.y <= 0.0f || !isJumpPressed;
-        float fallMultiplier = 2.0f;
+        float fallMultiplier = 1.7f;
 
         if (characterController.isGrounded) 
         {

@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 5, z: -13}
+  m_FollowOffset: {x: 0, y: 19.188393, z: -12.555357}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 5, z: -13}
+  m_FollowOffset: {x: 0, y: 19.188393, z: -12.555357}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 5, z: -13}
+  m_FollowOffset: {x: 0, y: 19.188393, z: -12.555357}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -612,9 +612,9 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.5
+    Value: 0.75
     m_SpeedMode: 0
-    m_MaxSpeed: 0.75
+    m_MaxSpeed: 0.5
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
