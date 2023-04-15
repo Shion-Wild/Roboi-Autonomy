@@ -123,8 +123,8 @@ public class MovementController : MonoBehaviour
     void OnMovementInput(InputAction.CallbackContext context)
     {
         currentMovementInput = context.ReadValue<Vector2>();
-        currentMovement.x = currentMovementInput.x * 7.0f;
-        currentMovement.z = currentMovementInput.y * 7.0f;
+        currentMovement.x = currentMovementInput.x * 10.0f;
+        currentMovement.z = currentMovementInput.y * 10.0f;
         //currentRunMovement.x = currentMovementInput.x * dashMultiplier;
         //currentRunMovement.z = currentMovementInput.y * dashMultiplier;
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
