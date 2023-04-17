@@ -38,7 +38,9 @@ public class MovementController : MonoBehaviour
 
    // Trigger Abilities 
     bool isInvisibilityPressed = false;
+    public static bool isInvisibilityActivated;
     bool isEMPPressed = false;
+    public static bool isEMPActivated;
     bool isDashPressed = false;
 
 
@@ -221,41 +223,7 @@ public class MovementController : MonoBehaviour
         playerInput.CharacterControls.Disable();
     }
 
-    // Abililites
-
-    // Invisibility
-
-    void OnInvisible(InputAction.CallbackContext context)
-    {
-        isInvisibilityPressed = context.ReadValueAsButton();
-        Debug.Log(isInvisibilityPressed);
-    }
-
-    void HandleInvisibility()
-    {
-        if (isInvisibilityPressed)
-        {
-            playerAbilities.TriggerInvisibility();
-        }
-
-    }
-
-    // EMP Bomb
-    void OnEMP(InputAction.CallbackContext context)
-    {
-        isEMPPressed = context.ReadValueAsButton();
-        Debug.Log(isEMPPressed);
-    }
-
-    void HandleEMP()
-    {
-        if (isEMPPressed)
-        {
-            playerAbilities.ThrowEMPGrenade();
-            isEMPPressed = false;
-        }
-
-    }
+    // Abililites and Ability Activataion Triggers are Handled Here
 
     // Dash 
 
@@ -271,8 +239,47 @@ public class MovementController : MonoBehaviour
         {
             playerAbilities.TriggerDash();
         }
-
     }
 
+    // EMP Bomb
+
+
+    void OnEMP(InputAction.CallbackContext context)
+    {
+        isEMPPressed = context.ReadValueAsButton();
+        Debug.Log(isEMPPressed);
+    }
+
+    void HandleEMP()
+    {
+        if (isEMPPressed && isEMPActivated)
+        {
+            playerAbilities.ThrowEMPGrenade();
+            isEMPPressed = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Ability Activated");
+        Destroy(other.gameObject);
+        isEMPActivated = true;
+    }
+
+    // Invisibility
+
+    void OnInvisible(InputAction.CallbackContext context)
+    {
+        isInvisibilityPressed = context.ReadValueAsButton();
+        Debug.Log(isInvisibilityPressed);
+    }
+
+    void HandleInvisibility()
+    {
+        if (isInvisibilityPressed)
+        {
+            playerAbilities.TriggerInvisibility();
+        }
+    } 
 
 }
