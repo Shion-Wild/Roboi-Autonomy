@@ -29,6 +29,11 @@ public class MainMenu : MonoBehaviour
 
     public void Controls ()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(7);
+    }
+
+    public void credits()
+    {
+        SceneManager.LoadScene(8);
     }
 }

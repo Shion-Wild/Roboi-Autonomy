@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 2.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Level Three Whitebox.unity
+    path: Assets/Scenes/Level 3.unity
     guid: f9f49c6c0ffd5ec4b92fca84c3490a41
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/WinMenu.unity
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/Controls.unity
     guid: 7266497b3c22b444dab7e1f57ac033bf
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/Credits.unity
+    guid: 4d8626905c3ebcc44889d6ef5d56150d
   m_configObjects: {}
