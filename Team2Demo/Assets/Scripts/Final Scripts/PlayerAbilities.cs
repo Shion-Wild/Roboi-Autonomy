@@ -9,7 +9,7 @@ public class PlayerAbilities : MonoBehaviour
     // Invisibility Variables and References
     [Header("Invisibility Variables and References")]
     Renderer playerRenderer;
-    EnemyAI enemyScript;
+    GameObject [] enemyScripts;
     //EnemyCameraAI cameraAI;
     public Material invisibleMaterial;
     public Material normalMaterial;
@@ -41,7 +41,11 @@ public class PlayerAbilities : MonoBehaviour
     {
         // Invisibility Cache
         playerRenderer = GameObject.Find("Character").GetComponent<MeshRenderer>();
-        enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>();
+
+        // Caching Array of Game Objects that are tagged "Enemy"
+        enemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
+        
+
         //cameraAI = GameObject.Find("EnemyCamera").GetComponent<EnemyCameraAI>();
 
         // Dash 
@@ -109,15 +113,33 @@ public class PlayerAbilities : MonoBehaviour
     {
 
         playerRenderer.material = invisibleMaterial;
-        enemyScript.playerInvisible = true;
+        TellEnemiesInvisible();
         //cameraAI.playerInvisible = true;    
 
         yield return new WaitForSeconds(duration);
 
         playerRenderer.material = normalMaterial;
-        enemyScript.playerInvisible = false;
+        TellEnemiesVisible();
         //cameraAI.playerInvisible = false;
     }
 
-    
+    public void TellEnemiesInvisible()
+    {
+        for (int i = 0; i < enemyScripts.Length; i++) 
+        {
+            EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
+            enemyAI.playerInvisible = true;
+        }
+    }
+
+    public void TellEnemiesVisible()
+    {
+        for (int i = 0; i < enemyScripts.Length; i++)
+        {
+            EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
+            enemyAI.playerInvisible = false;
+        }
+    }
+
+
 }

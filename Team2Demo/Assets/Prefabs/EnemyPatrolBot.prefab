@@ -110,7 +110,7 @@ MonoBehaviour:
   enemyProjectile: {fileID: 6408426721240696412, guid: aba87eb99bb83094d9869585898b00eb,
     type: 3}
   sightRange: 15
-  attackRange: 3
+  attackRange: 5
   playerInSightRange: 0
   playerInAttackRange: 0
   playerInvisible: 0

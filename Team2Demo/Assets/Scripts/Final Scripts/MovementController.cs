@@ -42,8 +42,8 @@ public class MovementController : MonoBehaviour
     bool isDashPressed = false;
 
     // Static Variables
-    public static bool isEMPActivated = true;
-    public static bool isInvisibilityActivated = true;
+    public static bool isEMPActivated = false;
+    public static bool isInvisibilityActivated = false;
 
 
     void Awake()
