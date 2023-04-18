@@ -116,9 +116,9 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             // Add Enemy Attack Code
-            //Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             
 
             // Cycling "alreadyAttacked" between true and false so that the enemy does not spam attacks.

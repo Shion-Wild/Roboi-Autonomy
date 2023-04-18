@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2395573057621745954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LookUpPoint
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ Transform:
   m_Children:
   - {fileID: 2395573057621745954}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &670438957463387722
 MeshFilter:
@@ -154,8 +154,6 @@ MonoBehaviour:
   characterController: {fileID: 1304811737628942980}
   cameraRelativeMovement: {x: 0, y: 0, z: 0}
   moveSpeed: 10
-  isInvisibilityActivated: 0
-  isEMPActivated: 0
 --- !u!114 &2074182880673690585
 MonoBehaviour:
   m_ObjectHideFlags: 0

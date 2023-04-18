@@ -36,12 +36,14 @@ public class MovementController : MonoBehaviour
     float maxJumpTime = 1.2f;
     bool isJumping = false;
 
-   // Trigger Abilities 
+    // Trigger Abilities 
     bool isInvisibilityPressed = false;
-    public static bool isInvisibilityActivated;
     bool isEMPPressed = false;
-    public static bool isEMPActivated;
     bool isDashPressed = false;
+
+    // Static Variables
+    public static bool isEMPActivated = true;
+    public static bool isInvisibilityActivated = true;
 
 
     void Awake()
@@ -67,6 +69,12 @@ public class MovementController : MonoBehaviour
 
         SetupJumpVariables();
 
+    }
+
+    void Start()
+    {
+        //isEMPActivated = false;
+        //isInvisibilityActivated = false;
     }
 
     void SetupJumpVariables()
@@ -223,7 +231,23 @@ public class MovementController : MonoBehaviour
         playerInput.CharacterControls.Disable();
     }
 
-    // Abililites and Ability Activataion Triggers are Handled Here
+    // Activate Abilities
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "EMPActivate")
+        {
+            Destroy(other.gameObject);
+            isEMPActivated = true;
+            Debug.Log("EMP Activated");
+        }
+        else if (other.gameObject.name == "InvisibleActivate")
+        {
+            Destroy(other.gameObject);
+            isInvisibilityActivated = true;
+            Debug.Log("Invisibility Activated");
+        }
+       
+    }
 
     // Dash 
 
@@ -257,13 +281,6 @@ public class MovementController : MonoBehaviour
             playerAbilities.ThrowEMPGrenade();
             isEMPPressed = false;
         }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Ability Activated");
-        Destroy(other.gameObject);
-        isEMPActivated = true;
     }
 
     // Invisibility
