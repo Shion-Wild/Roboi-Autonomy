@@ -119,6 +119,9 @@ MonoBehaviour:
   walkPointRange: 0
   timeBetweenAttacks: 2
   alreadyAttacked: 0
+  patrolling: {fileID: 8300000, guid: 4a9db4c69807698429a67c48be886bd2, type: 3}
+  takeDamage: {fileID: 0}
+  death: {fileID: 0}
 --- !u!195 &-3844329576229637935
 NavMeshAgent:
   m_ObjectHideFlags: 0

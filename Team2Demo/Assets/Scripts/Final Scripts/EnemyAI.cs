@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -30,15 +31,21 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     public bool alreadyAttacked;
 
-    // EMP State 
-
-    // Invisible State
+    //SFX Clips
+    [SerializeField] public AudioClip patrolling;
+    //[SerializeField] public AudioClip takeDamage;
+    //[SerializeField] public AudioClip death;
 
 
     void Awake()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Character").transform;
+    }
+
+    void Start()
+    {
+        SoundManager.Instance.EnemyPatrollingSound(patrolling);
     }
 
     void Update()

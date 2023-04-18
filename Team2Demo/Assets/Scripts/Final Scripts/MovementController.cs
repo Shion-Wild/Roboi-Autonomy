@@ -45,6 +45,12 @@ public class MovementController : MonoBehaviour
     public static bool isEMPActivated = false;
     public static bool isInvisibilityActivated = false;
 
+    // Music and SFX Clips
+    [SerializeField] public AudioClip backGround;
+    [SerializeField] public AudioClip dash;
+    [SerializeField] public AudioClip emp;
+    //[SerializeField] public AudioClip playerMovement;
+
 
     void Awake()
     {
@@ -75,6 +81,8 @@ public class MovementController : MonoBehaviour
     {
         //isEMPActivated = false;
         //isInvisibilityActivated = false;
+        SoundManager.Instance.PlayBackgroundMusic(backGround);
+
     }
 
     void SetupJumpVariables()
@@ -262,6 +270,7 @@ public class MovementController : MonoBehaviour
         if (isDashPressed)
         {
             playerAbilities.TriggerDash();
+            SoundManager.Instance.PlayCharacterSound(dash);
         }
     }
 
@@ -280,6 +289,7 @@ public class MovementController : MonoBehaviour
         {
             playerAbilities.ThrowEMPGrenade();
             isEMPPressed = false;
+            SoundManager.Instance.PlayCharacterSound(emp);
         }
     }
 

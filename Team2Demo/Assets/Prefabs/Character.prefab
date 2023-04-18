@@ -154,6 +154,9 @@ MonoBehaviour:
   characterController: {fileID: 1304811737628942980}
   cameraRelativeMovement: {x: 0, y: 0, z: 0}
   moveSpeed: 10
+  backGround: {fileID: 8300000, guid: 83dafe585b2b6cc45abb585015e2153e, type: 3}
+  dash: {fileID: 8300000, guid: 1c6ce95b3f4df8149883381cc134ee45, type: 3}
+  emp: {fileID: 8300000, guid: 3b235c556b2a5164eb9cae4a2f03194e, type: 3}
 --- !u!114 &2074182880673690585
 MonoBehaviour:
   m_ObjectHideFlags: 0
