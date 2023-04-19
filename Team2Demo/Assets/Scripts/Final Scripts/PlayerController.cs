@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(7);
         }
         
     }
