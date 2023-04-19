@@ -110,7 +110,7 @@ public class PlayerAbilities : MonoBehaviour
 
         invisibilityLastShot = Time.time;
 
-        StartCoroutine(InvisibilityTimer(6f));
+        StartCoroutine(InvisibilityTimer(3f));
     }
 
    
@@ -120,7 +120,7 @@ public class PlayerAbilities : MonoBehaviour
         playerRenderer.material = invisibleMaterial;
         TellEnemiesInvisible();
         TellEnemiesArmsInvisible();
-        TellEnemiesCamerasInvisible();
+        //TellEnemiesCamerasInvisible();
         //cameraAI.playerInvisible = true;    
 
         yield return new WaitForSeconds(duration);
@@ -128,7 +128,7 @@ public class PlayerAbilities : MonoBehaviour
         playerRenderer.material = normalMaterial;
         TellEnemiesVisible();
         TellEnemiesArmsVisible();
-        TellEnemiesCamerasVisible();
+        //TellEnemiesCamerasVisible();
         //cameraAI.playerInvisible = false;
     }
 

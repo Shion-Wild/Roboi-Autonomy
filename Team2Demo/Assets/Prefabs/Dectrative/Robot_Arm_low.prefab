@@ -508,6 +508,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2740507618986372044}
   - component: {fileID: 3680852435032094152}
+  - component: {fileID: 2033399292564446473}
+  - component: {fileID: 2734023243268100697}
   m_Layer: 9
   m_Name: Robot_Arm_low
   m_TagString: EnemyArm
@@ -540,7 +542,7 @@ Transform:
   - {fileID: 6402538034672373924}
   - {fileID: 7687840534665817463}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3680852435032094152
 MonoBehaviour:
@@ -565,6 +567,36 @@ MonoBehaviour:
   playerInvisible: 0
   timeBetweenAttacks: 2
   alreadyAttacked: 0
+--- !u!64 &2033399292564446473
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261711707535274358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!54 &2734023243268100697
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261711707535274358}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3842161542985437963
 GameObject:
   m_ObjectHideFlags: 0

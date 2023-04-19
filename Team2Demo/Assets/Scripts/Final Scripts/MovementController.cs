@@ -45,8 +45,8 @@ public class MovementController : MonoBehaviour
     bool isDashPressed = false;
 
     // Static Variables
-    public static bool isEMPActivated = false;
-    public static bool isInvisibilityActivated = false;
+    public static bool isEMPActivated = true;
+    public static bool isInvisibilityActivated = true;
 
     // Music and SFX Clips
     [SerializeField] public AudioClip backGround;

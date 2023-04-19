@@ -84,12 +84,12 @@ public class EnemyArmAI : MonoBehaviour
 
 
 
-    /*
+    
     public void DisableEnemy()
     {
         Destroy(gameObject);
     }
-    */
+    
 
 
 
