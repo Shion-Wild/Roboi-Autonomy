@@ -1,32 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxHealth = 4;
-    public int currentHealth;
+    // Static Variables
+    static int maxHealth = 8;
+    static int currentHealth;
 
-    //public HealthBar healthBar;
+    public HealthBar healthBar;
     
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
-        //healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    void PlayerTakeDamage(int damage)
+    void Update()
     {
-        currentHealth -= damage;
-        //healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene(6);
+        }
+        
     }
 
+    void PlayerTakeDamage()
+    {
+        currentHealth --;
+        healthBar.SetHealth(currentHealth);
+    }
+
+    /*
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             PlayerTakeDamage(1);
         }
+    }
+    */
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("EnemyProjectile"))
+        {
+            PlayerTakeDamage();
+        }
+        
     }
 
 }
