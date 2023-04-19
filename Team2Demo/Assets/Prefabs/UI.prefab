@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7871319236311772525}
   - component: {fileID: 2919766016048261236}
   - component: {fileID: 6682422936912348734}
+  - component: {fileID: 1093242145}
   m_Layer: 0
-  m_Name: Cooldown
+  m_Name: EMPCooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,11 +72,25 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1093242145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248591300905710238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82613ddff15c38846aed113da6f0dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCooldownTime: 3
+  cooldownImage: {fileID: 6682422936912348734}
 --- !u!1 &771759021955165496
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,8 +859,9 @@ GameObject:
   - component: {fileID: 3767115696915334932}
   - component: {fileID: 5565611831552717663}
   - component: {fileID: 2197743344798978129}
+  - component: {fileID: 8474204788308502050}
   m_Layer: 0
-  m_Name: Cooldown
+  m_Name: DashCooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,11 +920,25 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8474204788308502050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574846786472348709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e73c0620268c94cafe67573d488d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCooldownTime: 3
+  cooldownImage: {fileID: 2197743344798978129}
 --- !u!1 &5584978075795567961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,8 +1252,9 @@ GameObject:
   - component: {fileID: 6727686500557254078}
   - component: {fileID: 2143927176195491375}
   - component: {fileID: 5784052799944362187}
+  - component: {fileID: 290999262}
   m_Layer: 0
-  m_Name: Cooldown
+  m_Name: InvisibilityCooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,11 +1313,25 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &290999262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609292546389703460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd1c871416d83a4aa34c1e6829c4d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCooldownTime: 3
+  cooldownImage: {fileID: 5784052799944362187}
 --- !u!1 &7704199341892541999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1621,7 @@ Transform:
   m_Children:
   - {fileID: 8474204787512968839}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8474204787512968838
 GameObject:

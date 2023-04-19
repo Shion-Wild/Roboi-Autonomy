@@ -10,6 +10,9 @@ public class MovementController : MonoBehaviour
     PlayerInput playerInput;
     public CharacterController characterController;
     PlayerAbilities playerAbilities;
+    DashCooldown dashCooldown;
+    EMPCooldown empCooldown;
+    InvisibilityCooldown invisibilityCooldown;
 
     // Player Input 
     Vector2 currentMovementInput;
@@ -57,6 +60,10 @@ public class MovementController : MonoBehaviour
         playerInput = new PlayerInput();
         characterController = GetComponent<CharacterController>();
         playerAbilities = GetComponent<PlayerAbilities>();
+
+        dashCooldown = GameObject.Find("DashCooldown").GetComponent<DashCooldown>();
+        empCooldown = GameObject.Find("EMPCooldown").GetComponent<EMPCooldown>();
+        invisibilityCooldown = GameObject.Find("InvisibilityCooldown").GetComponent<InvisibilityCooldown>();
 
         playerInput.CharacterControls.Move.started += OnMovementInput;
         playerInput.CharacterControls.Move.canceled += OnMovementInput;
@@ -271,6 +278,7 @@ public class MovementController : MonoBehaviour
         {
             playerAbilities.TriggerDash();
             SoundManager.Instance.PlayCharacterSound(dash);
+            dashCooldown.TriggerAbility();
         }
     }
 
@@ -290,6 +298,8 @@ public class MovementController : MonoBehaviour
             playerAbilities.ThrowEMPGrenade();
             isEMPPressed = false;
             SoundManager.Instance.PlayCharacterSound(emp);
+            empCooldown.TriggerAbility();
+            
         }
     }
 
@@ -303,9 +313,10 @@ public class MovementController : MonoBehaviour
 
     void HandleInvisibility()
     {
-        if (isInvisibilityPressed)
+        if (isInvisibilityPressed && isInvisibilityActivated)
         {
             playerAbilities.TriggerInvisibility();
+            invisibilityCooldown.TriggerAbility();
         }
     } 
 

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.Rendering;
 
 public class PlayerAbilities : MonoBehaviour
 {
@@ -24,8 +27,7 @@ public class PlayerAbilities : MonoBehaviour
 
     public float empCoolDown;
     float empLastShot;
-    
-
+   
     // Dash References
     CharacterController characterController;
     MovementController movementController;
@@ -36,6 +38,7 @@ public class PlayerAbilities : MonoBehaviour
     // For Dash Cooldown Timer
     public float dashCoolDown;
     float dashLastShot;
+
 
     void Awake()
     {
@@ -51,6 +54,7 @@ public class PlayerAbilities : MonoBehaviour
         // Dash 
         characterController = FindObjectOfType<CharacterController>();
         movementController = GetComponent<MovementController>();
+
     }
 
     // Dash MGMT
@@ -76,7 +80,6 @@ public class PlayerAbilities : MonoBehaviour
             yield return null;
         }
     }
-
 
 
     // EMP MGMT
