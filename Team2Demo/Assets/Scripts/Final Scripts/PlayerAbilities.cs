@@ -130,8 +130,12 @@ public class PlayerAbilities : MonoBehaviour
     {
         for (int i = 0; i < enemyScripts.Length; i++) 
         {
-            EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
-            enemyAI.playerInvisible = true;
+            if (enemyScripts[i] != null)
+            {
+                EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
+                enemyAI.playerInvisible = true;
+            }
+            
         }
     }
 
@@ -139,8 +143,12 @@ public class PlayerAbilities : MonoBehaviour
     {
         for (int i = 0; i < enemyScripts.Length; i++)
         {
-            EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
-            enemyAI.playerInvisible = false;
+            if (enemyScripts[i] != null)
+            {
+                EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
+                enemyAI.playerInvisible = false;
+            }
+            
         }
     }
 
