@@ -92,9 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8069060135578023685}
+  - component: {fileID: 9011031834496394747}
   m_Layer: 0
   m_Name: Security_Camera_low
-  m_TagString: Untagged
+  m_TagString: EnemyCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +115,31 @@ Transform:
   - {fileID: 8813579112123802459}
   - {fileID: 6561893739216043588}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9011031834496394747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7255545142505172415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd00977191f2f3498fd3c371055e07d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  player: {fileID: 0}
+  enemyProjectile: {fileID: 6408426721240696412, guid: aba87eb99bb83094d9869585898b00eb,
+    type: 3}
+  attackRange: 15
+  playerInAttackRange: 0
+  playerInvisible: 0
+  timeBetweenAttacks: 1
+  alreadyAttacked: 0
 --- !u!1 &7411633031824855141
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class LoseSceneTrigger : MonoBehaviour
 {
+
+
+
     //PlayerMovementUpdated playerScript;
 
     /*
@@ -36,13 +40,15 @@ public class LoseSceneTrigger : MonoBehaviour
         //playerScript = GameObject.Find("Updated 3rd Person Player").GetComponent<PlayerMovementUpdated>();
     }
 
+    /*
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Character"))
         {
             //playerScript.PlayDeath();
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(6);
+            SoundManager.Instance.PlayBackgroundMusic(playerDeath);
         }
     }
-
+    */
 }

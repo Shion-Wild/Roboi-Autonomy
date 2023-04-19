@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  playerDeath: {fileID: 8300000, guid: 3ab627473ac9eeb4a9c7799e461d0109, type: 3}
 --- !u!136 &8780509744954467741
 CapsuleCollider:
   m_ObjectHideFlags: 0

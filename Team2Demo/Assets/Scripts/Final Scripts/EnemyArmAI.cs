@@ -53,7 +53,7 @@ public class EnemyArmAI : MonoBehaviour
     {
         transform.LookAt(player);
 
-        /*
+        
         if (!alreadyAttacked)
         {
             // Fire Projectile
@@ -66,7 +66,7 @@ public class EnemyArmAI : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-        */
+        
     }
 
 

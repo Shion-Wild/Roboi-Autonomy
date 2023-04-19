@@ -507,9 +507,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2740507618986372044}
+  - component: {fileID: 3680852435032094152}
   m_Layer: 0
   m_Name: Robot_Arm_low
-  m_TagString: Untagged
+  m_TagString: EnemyArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 64
@@ -539,8 +540,31 @@ Transform:
   - {fileID: 6402538034672373924}
   - {fileID: 7687840534665817463}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3680852435032094152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261711707535274358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd8369ad4e1bfd4489d302a4f49449b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  player: {fileID: 0}
+  enemyProjectile: {fileID: 6408426721240696412, guid: aba87eb99bb83094d9869585898b00eb,
+    type: 3}
+  attackRange: 10
+  playerInAttackRange: 0
+  playerInvisible: 0
+  timeBetweenAttacks: 2
+  alreadyAttacked: 0
 --- !u!1 &3842161542985437963
 GameObject:
   m_ObjectHideFlags: 0

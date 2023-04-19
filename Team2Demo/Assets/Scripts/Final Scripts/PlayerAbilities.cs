@@ -13,7 +13,8 @@ public class PlayerAbilities : MonoBehaviour
     [Header("Invisibility Variables and References")]
     Renderer playerRenderer;
     GameObject [] enemyScripts;
-    //EnemyCameraAI cameraAI;
+    GameObject[] enemyArmScripts;
+    GameObject[] enemyCameraScripts;
     public Material invisibleMaterial;
     public Material normalMaterial;
 
@@ -47,9 +48,10 @@ public class PlayerAbilities : MonoBehaviour
 
         // Caching Array of Game Objects that are tagged "Enemy"
         enemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
-        
+        enemyArmScripts = GameObject.FindGameObjectsWithTag("EnemyArm");
+        enemyCameraScripts = GameObject.FindGameObjectsWithTag("EnemyCamera");
 
-        //cameraAI = GameObject.Find("EnemyCamera").GetComponent<EnemyCameraAI>();
+
 
         // Dash 
         characterController = FindObjectOfType<CharacterController>();
@@ -117,12 +119,16 @@ public class PlayerAbilities : MonoBehaviour
 
         playerRenderer.material = invisibleMaterial;
         TellEnemiesInvisible();
+        TellEnemiesArmsInvisible();
+        TellEnemiesCamerasInvisible();
         //cameraAI.playerInvisible = true;    
 
         yield return new WaitForSeconds(duration);
 
         playerRenderer.material = normalMaterial;
         TellEnemiesVisible();
+        TellEnemiesArmsVisible();
+        TellEnemiesCamerasVisible();
         //cameraAI.playerInvisible = false;
     }
 
@@ -149,6 +155,58 @@ public class PlayerAbilities : MonoBehaviour
                 enemyAI.playerInvisible = false;
             }
             
+        }
+    }
+
+    public void TellEnemiesArmsInvisible()
+    {
+        for (int i = 0; i < enemyScripts.Length; i++)
+        {
+            if (enemyArmScripts[i] != null)
+            {
+                EnemyArmAI enemyAI = enemyArmScripts[i].GetComponent<EnemyArmAI>();
+                enemyAI.playerInvisible = true;
+            }
+
+        }
+    }
+
+    public void TellEnemiesArmsVisible()
+    {
+        for (int i = 0; i < enemyScripts.Length; i++)
+        {
+            if (enemyScripts[i] != null)
+            {
+                EnemyArmAI enemyAI = enemyArmScripts[i].GetComponent<EnemyArmAI>();
+                enemyAI.playerInvisible = false;
+            }
+
+        }
+    }
+
+    public void TellEnemiesCamerasInvisible()
+    {
+        for (int i = 0; i < enemyScripts.Length; i++)
+        {
+            if (enemyArmScripts[i] != null)
+            {
+                EnemyCameraAI enemyAI = enemyArmScripts[i].GetComponent<EnemyCameraAI>();
+                enemyAI.playerInvisible = true;
+            }
+
+        }
+    }
+
+    public void TellEnemiesCamerasVisible()
+    {
+        for (int i = 0; i < enemyScripts.Length; i++)
+        {
+            if (enemyScripts[i] != null)
+            {
+                EnemyCameraAI enemyAI = enemyCameraScripts[i].GetComponent<EnemyCameraAI>();
+                enemyAI.playerInvisible = false;
+            }
+
         }
     }
 
