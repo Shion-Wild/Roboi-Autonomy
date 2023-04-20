@@ -45,14 +45,13 @@ public class MovementController : MonoBehaviour
     bool isDashPressed = false;
 
     // Static Variables
-    public static bool isEMPActivated = true;
-    public static bool isInvisibilityActivated = true;
+    public static bool isEMPActivated;
+    public static bool isInvisibilityActivated;
 
     // Music and SFX Clips
     [SerializeField] public AudioClip backGround;
     [SerializeField] public AudioClip dash;
     [SerializeField] public AudioClip emp;
-    //[SerializeField] public AudioClip playerMovement;
 
 
     void Awake()
@@ -72,25 +71,83 @@ public class MovementController : MonoBehaviour
         playerInput.CharacterControls.Dash.canceled += OnDash;
         playerInput.CharacterControls.Jump.started += OnJump;
         playerInput.CharacterControls.Jump.canceled += OnJump;
-
         playerInput.CharacterControls.Invisibility.started += OnInvisible;
         playerInput.CharacterControls.Invisibility.canceled += OnInvisible;
-
         playerInput.CharacterControls.EMP.started += OnEMP;
         playerInput.CharacterControls.EMP.canceled += OnEMP;
 
-
         SetupJumpVariables();
-
     }
 
     void Start()
     {
-        //isEMPActivated = false;
-        //isInvisibilityActivated = false;
         SoundManager.Instance.PlayBackgroundMusic(backGround);
-
     }
+    void Update()
+    {
+        HandleRotation();
+
+        cameraRelativeMovement = ConvertToCameraSpace(currentMovement);
+        characterController.Move(cameraRelativeMovement * Time.deltaTime);
+
+        HandleGravity();
+        HandleJump();
+        HandleInvisibility();
+        HandleEMP();
+        HandleDash();
+    }
+
+    //Abilities 
+    // Dash 
+    void HandleDash()
+    {
+        if (isDashPressed)
+        {
+            playerAbilities.TriggerDash();
+            SoundManager.Instance.PlayCharacterSound(dash);
+            dashCooldown.TriggerAbility();
+        }
+    }
+    // EMP Bomb
+    void HandleEMP()
+    {
+        if (isEMPPressed && isEMPActivated)
+        {
+            playerAbilities.ThrowEMPGrenade();
+            isEMPPressed = false;
+            SoundManager.Instance.PlayCharacterSound(emp);
+            empCooldown.TriggerAbility();
+        }
+    }
+    // Invisibility
+    void HandleInvisibility()
+    {
+        if (isInvisibilityPressed && isInvisibilityActivated)
+        {
+            playerAbilities.TriggerInvisibility();
+            invisibilityCooldown.TriggerAbility();
+        }
+    }
+    // Activate Abilities
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "EMPActivate")
+        {
+            Destroy(collision.gameObject);
+            isEMPActivated = true;
+            Debug.Log("EMP Activated");
+        }
+        else if (collision.gameObject.name == "InvisibleActivate")
+        {
+            Destroy(collision.gameObject);
+            isInvisibilityActivated = true;
+            Debug.Log("Invisibility Activated");
+        }
+    }
+
+    /// <summary>
+    /// Base Movement
+    /// </summary>
 
     void SetupJumpVariables()
     {
@@ -112,20 +169,6 @@ public class MovementController : MonoBehaviour
             isJumping = false;
         }
     }
-
-    void OnJump(InputAction.CallbackContext context)
-    {
-        isJumpPressed = context.ReadValueAsButton();
-        Debug.Log(isJumpPressed);
-    }
-
-    /*
-    void OnDash(InputAction.CallbackContext context)
-    {
-        isRunPressed = context.ReadValueAsButton();
-        
-    }
-    */
 
     void HandleRotation()
     {
@@ -151,8 +194,6 @@ public class MovementController : MonoBehaviour
         currentMovementInput = context.ReadValue<Vector2>();
         currentMovement.x = currentMovementInput.x * moveSpeed;
         currentMovement.z = currentMovementInput.y * moveSpeed;
-        //currentRunMovement.x = currentMovementInput.x * dashMultiplier;
-        //currentRunMovement.z = currentMovementInput.y * dashMultiplier;
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
     }
 
@@ -164,7 +205,6 @@ public class MovementController : MonoBehaviour
         if (characterController.isGrounded) 
         {
             currentMovement.y = groundedGravity;
-            //currentRunMovement.y = groundedGravity;
         }
         else if (isFalling)
         {
@@ -172,7 +212,6 @@ public class MovementController : MonoBehaviour
             float newYVelocity = currentMovement.y + (gravity * fallMultiplier * Time.deltaTime);
             float nextYVelocity = (previousYVelocity + newYVelocity) * .5f;
             currentMovement.y = nextYVelocity;
-            //currentRunMovement.y = nextYVelocity;
         }
         else
         {
@@ -180,33 +219,7 @@ public class MovementController : MonoBehaviour
             float newYVelocity = currentMovement.y + (gravity * Time.deltaTime);
             float nextYVelocity = (previousYVelocity + newYVelocity) * .5f;
             currentMovement.y = nextYVelocity;
-            //currentRunMovement.y = nextYVelocity;
         }
-    }
-    void Update()
-    {
-        HandleRotation();
-
-        cameraRelativeMovement = ConvertToCameraSpace(currentMovement);
-        characterController.Move(cameraRelativeMovement * Time.deltaTime);
-
-        /*
-        if (isRunPressed)
-        {
-            cameraRelativeMovement = ConvertToCameraSpace(currentRunMovement);
-            characterController.Move(cameraRelativeMovement * Time.deltaTime);
-        } else {
-            cameraRelativeMovement = ConvertToCameraSpace(currentMovement);
-            characterController.Move(cameraRelativeMovement * Time.deltaTime);
-        }
-        */
-
-        HandleGravity();
-        HandleJump();
-        HandleInvisibility();
-        HandleEMP();
-        HandleDash();
-
     }
 
     Vector3 ConvertToCameraSpace(Vector3 vectorToRotate)
@@ -235,89 +248,35 @@ public class MovementController : MonoBehaviour
         vectorRotatedToCameraSpace.y = currentYValue;
         return vectorRotatedToCameraSpace;
     }
+  
+    
 
+    /// <summary>
+    /// Capture Input
+    /// </summary>
     void OnEnable()
     {
         playerInput.CharacterControls.Enable();
     }
-
     void OnDisable()
     {
         playerInput.CharacterControls.Disable();
     }
-
-    // Activate Abilities
-    void OnTriggerEnter(Collider other)
+    void OnJump(InputAction.CallbackContext context)
     {
-        if (other.gameObject.name == "EMPActivate")
-        {
-            Destroy(other.gameObject);
-            isEMPActivated = true;
-            Debug.Log("EMP Activated");
-        }
-        else if (other.gameObject.name == "InvisibleActivate")
-        {
-            Destroy(other.gameObject);
-            isInvisibilityActivated = true;
-            Debug.Log("Invisibility Activated");
-        }
-       
+        isJumpPressed = context.ReadValueAsButton();
     }
-
-    // Dash 
-
-    void OnDash(InputAction.CallbackContext context)
-    {
-        isDashPressed = context.ReadValueAsButton();
-        Debug.Log(isDashPressed);
-    }
-
-    void HandleDash()
-    {
-        if (isDashPressed)
-        {
-            playerAbilities.TriggerDash();
-            SoundManager.Instance.PlayCharacterSound(dash);
-            dashCooldown.TriggerAbility();
-        }
-    }
-
-    // EMP Bomb
-
-
-    void OnEMP(InputAction.CallbackContext context)
-    {
-        isEMPPressed = context.ReadValueAsButton();
-        Debug.Log(isEMPPressed);
-    }
-
-    void HandleEMP()
-    {
-        if (isEMPPressed && isEMPActivated)
-        {
-            playerAbilities.ThrowEMPGrenade();
-            isEMPPressed = false;
-            SoundManager.Instance.PlayCharacterSound(emp);
-            empCooldown.TriggerAbility();
-            
-        }
-    }
-
-    // Invisibility
-
     void OnInvisible(InputAction.CallbackContext context)
     {
         isInvisibilityPressed = context.ReadValueAsButton();
-        Debug.Log(isInvisibilityPressed);
     }
-
-    void HandleInvisibility()
+    void OnEMP(InputAction.CallbackContext context)
     {
-        if (isInvisibilityPressed && isInvisibilityActivated)
-        {
-            playerAbilities.TriggerInvisibility();
-            invisibilityCooldown.TriggerAbility();
-        }
-    } 
+        isEMPPressed = context.ReadValueAsButton();
+    }
+    void OnDash(InputAction.CallbackContext context)
+    {
+        isDashPressed = context.ReadValueAsButton();
+    }
 
 }

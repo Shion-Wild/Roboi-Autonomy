@@ -47,7 +47,7 @@ public class PlayerAbilities : MonoBehaviour
         playerRenderer = GameObject.Find("Character").GetComponent<MeshRenderer>();
 
         // Caching Array of Game Objects that are tagged "Enemy"
-        enemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
+        //enemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
         enemyArmScripts = GameObject.FindGameObjectsWithTag("EnemyArm");
         enemyCameraScripts = GameObject.FindGameObjectsWithTag("EnemyCamera");
 

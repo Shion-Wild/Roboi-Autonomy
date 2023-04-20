@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Win
   - Death
+  - EnemyArm
+  - EnemyProjectile
+  - EnemyCamera
+  - DeathPlatform
+  - GoToOne
+  - GoToTwo
+  - GoToThree
+  - GoToWin
+  - GoToLose
+  - GoToBoss
   layers:
   - Default
   - TransparentFX
