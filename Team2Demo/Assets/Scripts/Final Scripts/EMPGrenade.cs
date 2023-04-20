@@ -41,6 +41,7 @@ public class EMPGrenade : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
+            DestroyableObject destroyableObject = nearbyObject.GetComponent<DestroyableObject>();
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             EnemyAI enemyScript = nearbyObject.GetComponent<EnemyAI>();
 
@@ -49,6 +50,10 @@ public class EMPGrenade : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, radius);
 
                 enemyScript.DisableEnemy();
+            }
+            if (destroyableObject != null)
+            {
+                destroyableObject.EMPDestroy();
             }
 
         }

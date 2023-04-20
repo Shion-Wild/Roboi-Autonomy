@@ -5633,7 +5633,7 @@ GameObject:
   - component: {fileID: 979276686}
   m_Layer: 0
   m_Name: Scene Trigger (3)
-  m_TagString: Untagged
+  m_TagString: GoToBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9295,7 +9295,7 @@ GameObject:
   - component: {fileID: 1603748656}
   m_Layer: 0
   m_Name: Scene Trigger (2)
-  m_TagString: Untagged
+  m_TagString: GoToThree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12772,12 +12772,12 @@ PrefabInstance:
     - target: {fileID: 2975202605342528089, guid: 3be97d42e53cdd3469c81a59b1d6d06b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001891404
+      value: -0.000000018914042
       objectReference: {fileID: 0}
     - target: {fileID: 2975202605342528089, guid: 3be97d42e53cdd3469c81a59b1d6d06b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000035119139
+      value: 0.0000000035119143
       objectReference: {fileID: 0}
     - target: {fileID: 2975202605820630807, guid: 3be97d42e53cdd3469c81a59b1d6d06b,
         type: 3}
