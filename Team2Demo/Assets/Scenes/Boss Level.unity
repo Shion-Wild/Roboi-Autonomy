@@ -57229,6 +57229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetMaterial: {fileID: 2100000, guid: 13c18fb36b08f4e4d9efc91f87e4e0c4, type: 2}
+  baseEmissionColor: {r: 1, g: 0, b: 0.093020916, a: 0}
   newEmissionColor: {r: 0.44668034, g: 0, b: 0.9433962, a: 0}
 --- !u!4 &2065859165
 Transform:

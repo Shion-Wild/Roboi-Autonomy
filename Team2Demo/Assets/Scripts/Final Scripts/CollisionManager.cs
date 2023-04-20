@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class CollisionManager : MonoBehaviour
 {
+    // Cached References 
+    PlayerController playerController;
 
+    // Audio Clips
+    [SerializeField] public AudioClip playerDeath;
+
+    void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
     void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag)
@@ -30,6 +39,7 @@ public class CollisionManager : MonoBehaviour
                 break;
             case "DeathPlatform":
                 SceneManager.LoadScene(7);
+                SoundManager.Instance.PlayLossMusic();
                 break;
             case "ActivateEMP":
                 MovementController.isEMPActivated = true;
@@ -38,6 +48,9 @@ public class CollisionManager : MonoBehaviour
             case "ActivateInvisible":
                 MovementController.isInvisibilityActivated = true;
                 Destroy(other.gameObject);
+                break;
+            case "EnemyProjectile":
+                playerController.PlayerTakeDamage();
                 break;
             default:
                 break;

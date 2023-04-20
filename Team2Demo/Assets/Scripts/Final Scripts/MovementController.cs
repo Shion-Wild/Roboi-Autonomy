@@ -44,14 +44,14 @@ public class MovementController : MonoBehaviour
     bool isEMPPressed = false;
     bool isDashPressed = false;
 
-    // Static Variables
-    public static bool isEMPActivated;
-    public static bool isInvisibilityActivated;
+    // Ability SFX
+    [SerializeField] AudioClip dash;
+    [SerializeField] AudioClip emp;
 
-    // Music and SFX Clips
-    [SerializeField] public AudioClip backGround;
-    [SerializeField] public AudioClip dash;
-    [SerializeField] public AudioClip emp;
+
+    // Static Variables
+    public static bool isEMPActivated = false;
+    public static bool isInvisibilityActivated = false;
 
 
     void Awake()
@@ -81,7 +81,7 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
-        SoundManager.Instance.PlayBackgroundMusic(backGround);
+        SoundManager.Instance.PlayBackgroundMusic();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -128,22 +128,6 @@ public class MovementController : MonoBehaviour
         {
             playerAbilities.TriggerInvisibility();
             invisibilityCooldown.TriggerAbility();
-        }
-    }
-    // Activate Abilities
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "EMPActivate")
-        {
-            Destroy(collision.gameObject);
-            isEMPActivated = true;
-            Debug.Log("EMP Activated");
-        }
-        else if (collision.gameObject.name == "InvisibleActivate")
-        {
-            Destroy(collision.gameObject);
-            isInvisibilityActivated = true;
-            Debug.Log("Invisibility Activated");
         }
     }
 

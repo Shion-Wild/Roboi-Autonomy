@@ -6,6 +6,13 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+    PlayerController playerController;
+
+    void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+        
+    }
     public void PlayGame ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -18,12 +25,12 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        // Load the current scene of the player 
         SceneManager.LoadScene(1);
     }
 
     public void QuitGame ()
     {
-        Debug.Log ("QUIT!");
         Application.Quit();
     }
 

@@ -5,8 +5,29 @@ using UnityEngine;
 public class DestroyableObject : MonoBehaviour
 {
     public Material targetMaterial;
+    public Color baseEmissionColor;
     public Color newEmissionColor;
 
+
+    void Start()
+    {
+        SetEmissionColorAtStart();
+    }
+
+    void SetEmissionColorAtStart()
+    {
+        if (targetMaterial == null)
+        {
+            return;
+        }
+
+        // Set the base emission color at start
+        targetMaterial.SetColor("_EmissionColor", baseEmissionColor);
+        // Enable emission on the material
+        targetMaterial.EnableKeyword("_EMISSION");
+        // Update the material to apply the changes
+        targetMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
+    }
     public void EMPDestroy()
     {
         if (targetMaterial == null)
@@ -22,4 +43,6 @@ public class DestroyableObject : MonoBehaviour
         // Update the material to apply the changes
         targetMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
     }
+
+  
 }

@@ -11,6 +11,14 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource enemySfxSource;
     [SerializeField] AudioSource enemyMusicSource;
 
+    // Music and SFX Clips
+    [SerializeField] AudioClip backGround;
+    [SerializeField] AudioClip winMusic;
+    [SerializeField] AudioClip lossMusic;
+
+    public bool isPlaying = false;
+
+
     public static SoundManager Instance
     {
         get
@@ -41,16 +49,16 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayBackgroundMusic(AudioClip clip)
-    {
-        musicSource.clip = clip;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
-
+    // Player One Shot SFX's
     public void PlayCharacterSound(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);
+    }
+
+    // Enemy One Shot SFX's
+    public void PlayEnemySound(AudioClip clip)
+    {
+        enemySfxSource.PlayOneShot(clip);
     }
 
     // Will loop unless dead > Should adjust mixing / 3D settings for better blend and polish
@@ -61,14 +69,37 @@ public class SoundManager : MonoBehaviour
         enemyMusicSource.Play();
     }
 
-    public void PlayEnemySound(AudioClip clip)
+    // Background, Win, and Loss Music
+    public void PlayBackgroundMusic()
     {
-        enemySfxSource.PlayOneShot(clip);
+        musicSource.clip = backGround;
+        musicSource.loop = true;
+        musicSource.Play();
     }
+    public void PlayWinMusic()
+    {
+        musicSource.Stop();
+        musicSource.loop = false;
+        musicSource.clip = winMusic;
 
-
-
-
-
+        if (!isPlaying)
+        {
+            musicSource.Play();
+            isPlaying = true;
+        }
+    }
+    public void PlayLossMusic()
+    {
+        enemySfxSource.Stop();
+        enemyMusicSource.Stop();
+        musicSource.Stop();
+        musicSource.loop = false;
+        musicSource.clip = lossMusic;
+        if (!isPlaying)
+        {
+            musicSource.Play();
+            isPlaying = true;
+        }
+    }
 
 }

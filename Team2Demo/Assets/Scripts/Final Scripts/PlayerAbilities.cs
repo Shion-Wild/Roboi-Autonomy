@@ -9,35 +9,31 @@ using UnityEngine.Rendering;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    // Invisibility Variables and References
-    [Header("Invisibility Variables and References")]
-    Renderer playerRenderer;
-    GameObject [] enemyScripts;
+    // Cached References 
+    GameObject[] normalEnemyScripts;
     GameObject[] enemyArmScripts;
     GameObject[] enemyCameraScripts;
-    public Material invisibleMaterial;
-    public Material normalMaterial;
-
-    public float invisibilityCoolDown;
-    float invisibilityLastShot;
-
-    // EMP & Gravity Variables and References
-    [Header("EMP & Gravity Variables and References")]
-    public float grenadeThrowForce = 5f;
-    public GameObject empPrefab;
-
-    public float empCoolDown;
-    float empLastShot;
-   
-    // Dash References
+    Renderer playerRenderer;
     CharacterController characterController;
     MovementController movementController;
     Vector3 cameraRelativeMovement;
+
+    [Header("Invisibility")]
+    public float invisibilityCoolDown;
+    public Material invisibleMaterial;
+    public Material normalMaterial;
+    float invisibilityLastShot;
+
+    [Header("EMP")]
+    public float empCoolDown;
+    public float grenadeThrowForce = 5f;
+    public GameObject empPrefab;
+    float empLastShot;
+
+    [Header("Dash")]
+    public float dashCoolDown;
     public float dashSpeed;
     public float dashTime;
-
-    // For Dash Cooldown Timer
-    public float dashCoolDown;
     float dashLastShot;
 
 
@@ -47,11 +43,9 @@ public class PlayerAbilities : MonoBehaviour
         playerRenderer = GameObject.Find("Character").GetComponent<MeshRenderer>();
 
         // Caching Array of Game Objects that are tagged "Enemy"
-        //enemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
+        normalEnemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
         enemyArmScripts = GameObject.FindGameObjectsWithTag("EnemyArm");
         enemyCameraScripts = GameObject.FindGameObjectsWithTag("EnemyCamera");
-
-
 
         // Dash 
         characterController = FindObjectOfType<CharacterController>();
@@ -120,93 +114,85 @@ public class PlayerAbilities : MonoBehaviour
         playerRenderer.material = invisibleMaterial;
         TellEnemiesInvisible();
         TellEnemiesArmsInvisible();
-        //TellEnemiesCamerasInvisible();
-        //cameraAI.playerInvisible = true;    
+        TellEnemiesCamerasInvisible();    
 
         yield return new WaitForSeconds(duration);
 
         playerRenderer.material = normalMaterial;
         TellEnemiesVisible();
         TellEnemiesArmsVisible();
-        //TellEnemiesCamerasVisible();
-        //cameraAI.playerInvisible = false;
+        TellEnemiesCamerasVisible();
     }
 
+    // Looping through normal Enemy Scripts
     public void TellEnemiesInvisible()
     {
-        for (int i = 0; i < enemyScripts.Length; i++) 
+        for (int i = 0; i < normalEnemyScripts.Length; i++) 
         {
-            if (enemyScripts[i] != null)
+            if (normalEnemyScripts[i] != null)
             {
-                EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
+                EnemyAI enemyAI = normalEnemyScripts[i].GetComponent<EnemyAI>();
                 enemyAI.playerInvisible = true;
             }
-            
         }
     }
-
     public void TellEnemiesVisible()
     {
-        for (int i = 0; i < enemyScripts.Length; i++)
+        for (int i = 0; i < normalEnemyScripts.Length; i++)
         {
-            if (enemyScripts[i] != null)
+            if (normalEnemyScripts[i] != null)
             {
-                EnemyAI enemyAI = enemyScripts[i].GetComponent<EnemyAI>();
+                EnemyAI enemyAI = normalEnemyScripts[i].GetComponent<EnemyAI>();
                 enemyAI.playerInvisible = false;
             }
-            
         }
     }
 
+    // Looping through Enemy Arm Scripts
     public void TellEnemiesArmsInvisible()
     {
-        for (int i = 0; i < enemyScripts.Length; i++)
+        for (int i = 0; i < enemyArmScripts.Length; i++)
         {
             if (enemyArmScripts[i] != null)
             {
                 EnemyArmAI enemyAI = enemyArmScripts[i].GetComponent<EnemyArmAI>();
                 enemyAI.playerInvisible = true;
             }
-
         }
     }
-
     public void TellEnemiesArmsVisible()
     {
-        for (int i = 0; i < enemyScripts.Length; i++)
+        for (int i = 0; i < enemyArmScripts.Length; i++)
         {
-            if (enemyScripts[i] != null)
+            if (enemyArmScripts[i] != null)
             {
                 EnemyArmAI enemyAI = enemyArmScripts[i].GetComponent<EnemyArmAI>();
                 enemyAI.playerInvisible = false;
             }
-
         }
     }
 
+    // Looping through Enemy Camera Scripts
     public void TellEnemiesCamerasInvisible()
     {
-        for (int i = 0; i < enemyScripts.Length; i++)
+        for (int i = 0; i < enemyCameraScripts.Length; i++)
         {
-            if (enemyArmScripts[i] != null)
+            if (enemyCameraScripts[i] != null)
             {
-                EnemyCameraAI enemyAI = enemyArmScripts[i].GetComponent<EnemyCameraAI>();
+                EnemyCameraAI enemyAI = enemyCameraScripts[i].GetComponent<EnemyCameraAI>();
                 enemyAI.playerInvisible = true;
             }
-
         }
     }
-
     public void TellEnemiesCamerasVisible()
     {
-        for (int i = 0; i < enemyScripts.Length; i++)
+        for (int i = 0; i < enemyCameraScripts.Length; i++)
         {
-            if (enemyScripts[i] != null)
+            if (enemyCameraScripts[i] != null)
             {
                 EnemyCameraAI enemyAI = enemyCameraScripts[i].GetComponent<EnemyCameraAI>();
                 enemyAI.playerInvisible = false;
             }
-
         }
     }
 

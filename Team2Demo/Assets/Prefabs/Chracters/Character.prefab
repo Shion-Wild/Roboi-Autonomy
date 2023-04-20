@@ -184,11 +184,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invisibleMaterial: {fileID: 2100000, guid: a426e911d960e4946b5d679945909cce, type: 2}
   normalMaterial: {fileID: 2100000, guid: 25fc29e2dfdd77742840400a009f510b, type: 2}
-  invisibilityCoolDown: 7
+  invisibilityCoolDown: 3
   grenadeThrowForce: 5
   empPrefab: {fileID: 4127156059897323594, guid: f7e1c283578a67f42a8d2f90a0fec0d1,
     type: 3}
-  empCoolDown: 4
+  empCoolDown: 3
   dashSpeed: 15
   dashTime: 0.5
   dashCoolDown: 3
@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  playerDeath: {fileID: 8300000, guid: 3ab627473ac9eeb4a9c7799e461d0109, type: 3}
 --- !u!136 &8780509744954467741
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -232,3 +231,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08e6d4877790534badb47ae13e169a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeath: {fileID: 8300000, guid: 3ab627473ac9eeb4a9c7799e461d0109, type: 3}
