@@ -82,8 +82,8 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.PlayBackgroundMusic();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
     void Update()
     {

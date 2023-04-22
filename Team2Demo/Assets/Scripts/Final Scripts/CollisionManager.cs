@@ -25,7 +25,7 @@ public class CollisionManager : MonoBehaviour
             case "GoToTwo":
                 SceneManager.LoadScene(3);
                 break;
-            case "GoThree":
+            case "GoToThree":
                 SceneManager.LoadScene(4);
                 break;
             case "GoToWin":
