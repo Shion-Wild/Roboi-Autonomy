@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 2
   force: 800
-  radius: 20
+  radius: 5
   layerMask: 512
   explosionEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
     type: 3}
