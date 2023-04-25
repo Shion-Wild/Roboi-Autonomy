@@ -187,7 +187,7 @@ MonoBehaviour:
   normalMaterial: {fileID: 2100000, guid: 25fc29e2dfdd77742840400a009f510b, type: 2}
   empCoolDown: 3
   grenadeThrowForce: 5
-  empPrefab: {fileID: 4127156059897323594, guid: f7e1c283578a67f42a8d2f90a0fec0d1,
+  empPrefab: {fileID: 6216476998537263726, guid: 3983a9cf10bf16545a17b7549ffec898,
     type: 3}
   dashCoolDown: 3
   dashSpeed: 15

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
 
     // Static Health Variables
-    static int maxHealth = 8;
+    static int maxHealth = 16;
     static int currentHealth;
 
     void Start()
@@ -29,13 +29,13 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerTakeDamage()
     {
-        currentHealth --;
+        currentHealth = currentHealth -1;
         healthBar.SetHealth(currentHealth);
     }
 
     public void HealthPickup()
     {
-        currentHealth = 8;
+        currentHealth = currentHealth +8;
         healthBar.SetHealth(currentHealth);
     }
 

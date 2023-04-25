@@ -43,6 +43,10 @@ public class CollisionManager : MonoBehaviour
                 //SceneManager.LoadScene(5);
                 ScenesManagerSingleton.Instance.LoadScene("Boss Level");
                 break;
+            case "GoToHub":
+                SceneManager.LoadScene(1);
+                //ScenesManagerSingleton.Instance.LoadScene("Level 1");
+                break;
             case "DeathPlatform":
                 //SceneManager.LoadScene(7);
                 ScenesManagerSingleton.Instance.LoadLoseScene();
