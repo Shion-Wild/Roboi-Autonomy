@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+    public void HealthPickup()
+    {
+        currentHealth = 8;
+        healthBar.SetHealth(currentHealth);
+    }
+
 
 
 }

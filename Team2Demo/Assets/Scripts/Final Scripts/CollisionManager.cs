@@ -20,25 +20,32 @@ public class CollisionManager : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "GoToOne":
-                SceneManager.LoadScene(2);
+                //SceneManager.LoadScene(2);
+                ScenesManagerSingleton.Instance.LoadScene("Level 1");
                 break;
             case "GoToTwo":
-                SceneManager.LoadScene(3);
+                //SceneManager.LoadScene(3);
+                ScenesManagerSingleton.Instance.LoadScene("Level 2");
                 break;
             case "GoToThree":
-                SceneManager.LoadScene(4);
+                //SceneManager.LoadScene(4);
+                ScenesManagerSingleton.Instance.LoadScene("Level 3");
                 break;
             case "GoToWin":
-                SceneManager.LoadScene(6);
+                //SceneManager.LoadScene(6);
+                ScenesManagerSingleton.Instance.LoadWinScene();
                 break;
             case "GoToLose":
-                SceneManager.LoadScene(7);
+                //SceneManager.LoadScene(7);
+                ScenesManagerSingleton.Instance.LoadLoseScene();
                 break;
             case "GoToBoss":
-                SceneManager.LoadScene(5);
+                //SceneManager.LoadScene(5);
+                ScenesManagerSingleton.Instance.LoadScene("Boss Level");
                 break;
             case "DeathPlatform":
-                SceneManager.LoadScene(7);
+                //SceneManager.LoadScene(7);
+                ScenesManagerSingleton.Instance.LoadLoseScene();
                 SoundManager.Instance.PlayLossMusic();
                 break;
             case "ActivateEMP":
@@ -51,6 +58,10 @@ public class CollisionManager : MonoBehaviour
                 break;
             case "EnemyProjectile":
                 playerController.PlayerTakeDamage();
+                break;
+            case "HealthPickup":
+                playerController.HealthPickup();
+                Destroy(other.gameObject);
                 break;
             default:
                 break;
