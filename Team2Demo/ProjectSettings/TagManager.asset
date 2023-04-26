@@ -16,6 +16,12 @@ TagManager:
   - GoToWin
   - GoToLose
   - GoToBoss
+  - ActivateInvisible
+  - HealthPickup
+  - Enemy
+  - EMPBossHit
+  - EMPDoor
+  - Level3Exit
   layers:
   - Default
   - TransparentFX
@@ -27,7 +33,7 @@ TagManager:
   - 
   - Ground
   - CanEMP
-  - 
+  - CanEMP
   - Player
   - 
   - 

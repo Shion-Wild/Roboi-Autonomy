@@ -6,13 +6,14 @@ using UnityEngine.AI;
 public class EMPGrenade : MonoBehaviour
 {
 
-    public float delay = 2f;
-    public float force = 800f;
-    public float radius = 5f;
+    float delay = 2f;
+    float force = 100f;
+    float radius = 20f;
 
     // Layer Mask for EMP Testing
-    public int layerMask = 1 << 9;
+    int layerMask = 1 << 10;
 
+    // Particle FX
     public GameObject explosionEffect;
 
     float countdown;
@@ -54,34 +55,58 @@ public class EMPGrenade : MonoBehaviour
                 {
                     // Apply explosion force to the Rigidbody
                     rb.AddExplosionForce(force, transform.position, radius);
-
+                }
+                if (enemyScript != null)
+                {
                     // Call a method to disable the enemy's AI
                     enemyScript.DisableEnemy();
                 }
 
-            } else if (nearbyObject.CompareTag("EMPDoor")) {
+            }
+            else if (nearbyObject.CompareTag("EMPDoor"))
+            {
 
                 // Get the components of the nearby object
                 DestroyableObject destroyableObject = nearbyObject.GetComponent<DestroyableObject>();
+                Collider collider = nearbyObject.GetComponent<Collider>();
 
-                // If the nearby object has a BossDestroyableObject component
                 if (destroyableObject != null)
                 {
                     // Call a method to destroy the object as part of an EMP effect
                     destroyableObject.EMPDestroyDoor();
                 }
 
-            } else if (nearbyObject.CompareTag("EMPBossHit")) {
-
+                if (collider != null)
+                {
+                    // Destroy the collider component
+                    Destroy(collider);
+                }
+            }
+            else if (nearbyObject.CompareTag("Level3Exit"))
+            {
                 // Get the components of the nearby object
-                BossDestroyableObject bossDestroyableObject = nearbyObject.GetComponent<BossDestroyableObject>();
+                EmpLevel3Detect level3Detect = nearbyObject.GetComponent<EmpLevel3Detect>();
+
+                if (level3Detect != null)
+                {
+                    // Call a method to destroy the object as part of an EMP effect
+                    level3Detect.EMPOpenLevel3();
+                }
+
+
+            }
+            else if (nearbyObject.CompareTag("BossHitOne"))
+            {
+                // Get the components of the nearby object
+                BossDestroyableObjectOne bossDestroyableObject = nearbyObject.GetComponent<BossDestroyableObjectOne>();
 
                 // If the nearby object has a BossDestroyableObject component
                 if (bossDestroyableObject != null)
                 {
                     // Call a method to destroy the object as part of an EMP effect
-                    bossDestroyableObject.EMPDestroyBoss();
+                    bossDestroyableObject.ChangeLightsDamage();
                 }
+
 
             }
         }

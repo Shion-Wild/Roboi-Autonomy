@@ -8393,8 +8393,8 @@ MonoBehaviour:
   reloadLevelThreeButton: {fileID: 482530454}
   reloadLevelBossButton: {fileID: 492593191}
   loseMenuMainMenuButton: {fileID: 680785379}
-  winMenuHubButton: {fileID: 0}
-  winMenuMainMenuButton: {fileID: 0}
+  winMenuHubButton: {fileID: 2143495292}
+  winMenuMainMenuButton: {fileID: 1370508308}
 --- !u!114 &1074565987
 MonoBehaviour:
   m_ObjectHideFlags: 0
