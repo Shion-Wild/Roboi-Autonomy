@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class CollisionManager : MonoBehaviour
 {
+    [SerializeField] GameObject loseMenu;
+
+
+
     // Cached References 
     PlayerController playerController;
 
@@ -15,21 +19,22 @@ public class CollisionManager : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
     }
+
     void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag)
         {
             case "GoToOne":
                 //SceneManager.LoadScene(2);
-                ScenesManagerSingleton.Instance.LoadScene("Level 1");
+                ScenesManagerSingleton.Instance.LoadLevelOne();
                 break;
             case "GoToTwo":
                 //SceneManager.LoadScene(3);
-                ScenesManagerSingleton.Instance.LoadScene("Level 2");
+                ScenesManagerSingleton.Instance.LoadLevelTwo();
                 break;
             case "GoToThree":
                 //SceneManager.LoadScene(4);
-                ScenesManagerSingleton.Instance.LoadScene("Level 3");
+                ScenesManagerSingleton.Instance.LoadLevelThree();
                 break;
             case "GoToWin":
                 //SceneManager.LoadScene(6);
@@ -41,16 +46,16 @@ public class CollisionManager : MonoBehaviour
                 break;
             case "GoToBoss":
                 //SceneManager.LoadScene(5);
-                ScenesManagerSingleton.Instance.LoadScene("Boss Level");
+                ScenesManagerSingleton.Instance.LoadLevelBoss();
                 break;
             case "GoToHub":
                 SceneManager.LoadScene(1);
                 //ScenesManagerSingleton.Instance.LoadScene("Level 1");
                 break;
             case "DeathPlatform":
-                //SceneManager.LoadScene(7);
-                ScenesManagerSingleton.Instance.LoadLoseScene();
+                loseMenu.SetActive(true);
                 SoundManager.Instance.PlayLossMusic();
+                Time.timeScale = 0f;
                 break;
             case "ActivateEMP":
                 MovementController.isEMPActivated = true;

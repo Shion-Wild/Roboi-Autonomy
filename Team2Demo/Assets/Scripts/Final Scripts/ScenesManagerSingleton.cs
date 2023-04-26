@@ -38,9 +38,29 @@ public class ScenesManagerSingleton : MonoBehaviour
         }
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadHubScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("HubLevel");
+    }
+
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadLevelTwo()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void LoadLevelThree()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    public void LoadLevelBoss()
+    {
+        SceneManager.LoadScene(5);
     }
 
     public void LoadWinScene()
@@ -57,4 +77,6 @@ public class ScenesManagerSingleton : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    
 }
