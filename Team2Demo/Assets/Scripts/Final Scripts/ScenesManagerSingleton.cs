@@ -43,18 +43,6 @@ public class ScenesManagerSingleton : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void LoadPlayableScene(int sceneIndex)
-    {
-        if (sceneIndex >= 0 && sceneIndex < 5)
-        {
-            SceneManager.LoadScene("Scene" + (sceneIndex + 1));
-        }
-        else
-        {
-            Debug.LogError("Invalid scene index: " + sceneIndex);
-        }
-    }
-
     public void LoadWinScene()
     {
         SceneManager.LoadScene("WinMenu");
