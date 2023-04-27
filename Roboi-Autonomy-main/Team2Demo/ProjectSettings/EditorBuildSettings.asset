@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/MainMenu.unity
+    guid: 677c594a057f62746a8555fd1520734e
+  - enabled: 1
+    path: Assets/Scenes/HubLevel.unity
+    guid: 27c94238b86955e49bf1a282df779e2d
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 1a3d41af1db00de468f19852ee7fa0cb
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: f9f49c6c0ffd5ec4b92fca84c3490a41
+  - enabled: 1
+    path: Assets/Scenes/Boss Level.unity
+    guid: 6f301973021ba3e4da7e0fcaec0be28b
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/WinMenu.unity
+    guid: f3c11ab622a2d4444a921ae6cecfcbf4
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/LoseMenu.unity
+    guid: 1820ccc720ae561439504bb23a114f7d
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/Controls.unity
+    guid: 7266497b3c22b444dab7e1f57ac033bf
+  - enabled: 1
+    path: Assets/Scenes/Menu Scenes/Credits.unity
+    guid: 4d8626905c3ebcc44889d6ef5d56150d
+  m_configObjects: {}
