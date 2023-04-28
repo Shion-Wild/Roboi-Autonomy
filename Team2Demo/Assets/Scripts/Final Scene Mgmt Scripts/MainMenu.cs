@@ -37,11 +37,11 @@ public class MainMenu : MonoBehaviour
 
     public void Controls ()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(6);
     }
 
     public void credits()
     {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(7);
     }
 }

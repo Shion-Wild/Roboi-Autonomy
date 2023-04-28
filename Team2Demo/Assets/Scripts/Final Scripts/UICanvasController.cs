@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UICanvasController : MonoBehaviour
 {
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] public GameObject pauseMenu;
     [SerializeField] public GameObject loseMenu;
     [SerializeField] public GameObject winMenu;
 
@@ -41,6 +41,9 @@ public class UICanvasController : MonoBehaviour
 
     void Start()
     {
+        // pauseMenu.SetActive(false);
+        // loseMenu.SetActive(false);
+        // winMenu.SetActive(false);
         pauseMenu.SetActive(false);
         loseMenu.SetActive(false);
         winMenu.SetActive(false);
