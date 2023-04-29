@@ -53113,7 +53113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696417906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -145.38, y: 34.47, z: -1.4}
+  m_LocalPosition: {x: -171.3, y: 17.3, z: 20.5}
   m_LocalScale: {x: 3.3848157, y: 1, z: 7.542303}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62596,7 +62596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969652569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -145.29, y: 52.77, z: 129.73}
+  m_LocalPosition: {x: -101.67, y: 16.7, z: 47.7}
   m_LocalScale: {x: 3.3848157, y: 1, z: 7.542303}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68619,12 +68619,14 @@ PrefabInstance:
         type: 3}
       propertyPath: BoomFXOne
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+        type: 3}
     - target: {fileID: 2397295934306945823, guid: 67fd397c74a0b4346869aace3b82e26a,
         type: 3}
       propertyPath: BoomFXTwo
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+        type: 3}
     - target: {fileID: 2397295934306945823, guid: 67fd397c74a0b4346869aace3b82e26a,
         type: 3}
       propertyPath: bossController
@@ -68733,7 +68735,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4527709208021617758}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a56cc23dde1a9e40aef6b256e0081f9, type: 3}
   m_Name: 

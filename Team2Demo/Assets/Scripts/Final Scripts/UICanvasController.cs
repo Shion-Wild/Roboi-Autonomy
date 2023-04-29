@@ -61,6 +61,8 @@ public class UICanvasController : MonoBehaviour
 
     void GoToMainMenu()
     {
+        // Stop Game Background Msuic
+        SoundManager.Instance.PlayMenuMusic();
         ScenesManagerSingleton.Instance.LoadMainMenuScene();
         Time.timeScale = 1f;
     }
