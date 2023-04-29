@@ -41,6 +41,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         // Invisibility Cache
         playerRenderer = GameObject.Find("Character").GetComponent<MeshRenderer>();
+        //playerRenderer = GameObject.Find("Character").GetComponent<SkinnedMeshRenderer>();
 
         // Caching Array of Game Objects that are tagged "Enemy"
         normalEnemyScripts = GameObject.FindGameObjectsWithTag("Enemy");
