@@ -126,7 +126,9 @@ public class EnemyAI : MonoBehaviour
             Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            
+
+            Destroy(rb.gameObject, 3f);
+
 
             // Cycling "alreadyAttacked" between true and false so that the enemy does not spam attacks.
             alreadyAttacked = true;

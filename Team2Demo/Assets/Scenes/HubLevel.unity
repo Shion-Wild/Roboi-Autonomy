@@ -7796,13 +7796,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.153
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 75
+  Priority: 24
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -16010,9 +16010,10 @@ MonoBehaviour:
   musicSource: {fileID: 1013908020}
   enemySfxSource: {fileID: 313938607}
   enemyMusicSource: {fileID: 1838956978}
-  backGround: {fileID: 8300000, guid: 83b3d123ad0df5c45a9953f371a3e6fb, type: 3}
+  backGround: {fileID: 8300000, guid: 83dafe585b2b6cc45abb585015e2153e, type: 3}
   winMusic: {fileID: 8300000, guid: a4dfd7f88ce603e4baab1743db98db46, type: 3}
   lossMusic: {fileID: 8300000, guid: 3ab627473ac9eeb4a9c7799e461d0109, type: 3}
+  menuMusic: {fileID: 8300000, guid: 83b3d123ad0df5c45a9953f371a3e6fb, type: 3}
   isPlaying: 0
 --- !u!4 &2029616210
 Transform:

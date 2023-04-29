@@ -57,8 +57,10 @@ public class BossAI : MonoBehaviour
         {
             // Fire Projectile
             Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 64f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+
+            Destroy(rb.gameObject, 3f);
 
 
             // Cycling "alreadyAttacked" between true and false so that the enemy does not spam attacks.
@@ -77,6 +79,11 @@ public class BossAI : MonoBehaviour
     public void Idle()
     {
         transform.LookAt(player, Vector3.up);
+
+    }
+
+    public void BossDestroyed()
+    {
 
     }
 

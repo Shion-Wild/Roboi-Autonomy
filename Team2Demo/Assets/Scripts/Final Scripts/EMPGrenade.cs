@@ -109,6 +109,34 @@ public class EMPGrenade : MonoBehaviour
 
 
             }
+            else if (nearbyObject.CompareTag("BossHitTwo"))
+            {
+                // Get the components of the nearby object
+                BossDestroyableObjectTwo bossDestroyableObject = nearbyObject.GetComponent<BossDestroyableObjectTwo>();
+
+                // If the nearby object has a BossDestroyableObject component
+                if (bossDestroyableObject != null)
+                {
+                    // Call a method to destroy the object as part of an EMP effect
+                    bossDestroyableObject.ChangeLightsDamage();
+                }
+
+
+            }
+            else if (nearbyObject.CompareTag("BossHitThree"))
+            {
+                // Get the components of the nearby object
+                BossDestroyableObjectThree bossDestroyableObject = nearbyObject.GetComponent<BossDestroyableObjectThree>();
+
+                // If the nearby object has a BossDestroyableObject component
+                if (bossDestroyableObject != null)
+                {
+                    // Call a method to destroy the object as part of an EMP effect
+                    bossDestroyableObject.ChangeLightsDamage();
+                }
+
+
+            }
         }
 
         Destroy(gameObject);

@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public void BackMenu()
     {
         SceneManager.LoadScene(0);
+        SoundManager.Instance.PlayMenuMusic();
     }
 
     public void NewGame()

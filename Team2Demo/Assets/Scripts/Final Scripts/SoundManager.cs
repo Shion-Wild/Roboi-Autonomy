@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip backGround;
     [SerializeField] AudioClip winMusic;
     [SerializeField] AudioClip lossMusic;
+    [SerializeField] AudioClip menuMusic;
 
     public bool isPlaying = false;
 
@@ -95,6 +96,20 @@ public class SoundManager : MonoBehaviour
         musicSource.Stop();
         musicSource.loop = false;
         musicSource.clip = lossMusic;
+
+        if (!isPlaying)
+        {
+            musicSource.Play();
+            isPlaying = true;
+        }
+    }
+
+    public void PlayMenuMusic()
+    {
+        musicSource.Stop();
+        musicSource.loop = false;
+        musicSource.clip = menuMusic;
+
         if (!isPlaying)
         {
             musicSource.Play();
