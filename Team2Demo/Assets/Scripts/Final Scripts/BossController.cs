@@ -11,6 +11,8 @@ public class BossController : MonoBehaviour
     [SerializeField] GameObject BoomFXOneLocation;
     [SerializeField] GameObject BoomFXTwoLocation;
     public static int consolesDestroyed;
+    public GameObject CutCam;
+    public GameObject PlayerCam;
 
     void Start()
     {
@@ -22,6 +24,9 @@ public class BossController : MonoBehaviour
     {
         if (consolesDestroyed >= 3)
         {
+            //Disable playerCam and enable cutCam to display boss explosion
+            PlayerCam.SetActive(false);
+            CutCam.SetActive(true);
             // Destroy Boss AI controller to make him stop moving
             Destroy(bossAI);
 
