@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject loseMenu;
+
     // Cached References
     public HealthBar healthBar;
 
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            //SceneManager.LoadScene(7);
+            Respwan();
         }
     }
 
@@ -37,6 +39,13 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = currentHealth +8;
         healthBar.SetHealth(currentHealth);
+    }
+
+    void Respwan()
+    {
+        loseMenu.SetActive(true);
+        SoundManager.Instance.PlayLossMusic();
+        Time.timeScale = 0f;
     }
 
 

@@ -26090,6 +26090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849070859286133453, guid: 9fc19ca2af623c84b983a82d6062d099,
         type: 3}
+      propertyPath: loseMenu
+      value: 
+      objectReference: {fileID: 520656033}
+    - target: {fileID: 6849070859286133453, guid: 9fc19ca2af623c84b983a82d6062d099,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1164184476}

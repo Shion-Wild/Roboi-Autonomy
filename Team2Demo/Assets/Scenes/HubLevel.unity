@@ -8046,6 +8046,11 @@ PrefabInstance:
       objectReference: {fileID: 1053582034}
     - target: {fileID: 6849070859286133453, guid: 9fc19ca2af623c84b983a82d6062d099,
         type: 3}
+      propertyPath: loseMenu
+      value: 
+      objectReference: {fileID: 899620491}
+    - target: {fileID: 6849070859286133453, guid: 9fc19ca2af623c84b983a82d6062d099,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1220991113}
