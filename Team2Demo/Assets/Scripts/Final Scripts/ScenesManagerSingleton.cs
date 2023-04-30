@@ -63,15 +63,15 @@ public class ScenesManagerSingleton : MonoBehaviour
         SceneManager.LoadScene(5);
     }
 
-    public void LoadWinScene()
-    {
-        SceneManager.LoadScene("WinMenu");
-    }
+    // public void LoadWinScene()
+    // {
+    //     SceneManager.LoadScene("WinMenu");
+    // }
 
-    public void LoadLoseScene()
-    {
-        SceneManager.LoadScene("LoseMenu");
-    }
+    // public void LoadLoseScene()
+    // {
+    //     SceneManager.LoadScene("LoseMenu");
+    // }
 
     public void LoadMainMenuScene()
     {

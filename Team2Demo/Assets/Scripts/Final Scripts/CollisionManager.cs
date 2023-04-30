@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] GameObject loseMenu;
+    [SerializeField] GameObject winMenu;
 
 
 
@@ -38,11 +39,11 @@ public class CollisionManager : MonoBehaviour
                 break;
             case "GoToWin":
                 //SceneManager.LoadScene(6);
-                ScenesManagerSingleton.Instance.LoadWinScene();
+                //ScenesManagerSingleton.Instance.LoadWinScene();
                 break;
             case "GoToLose":
                 //SceneManager.LoadScene(7);
-                ScenesManagerSingleton.Instance.LoadLoseScene();
+                //ScenesManagerSingleton.Instance.LoadLoseScene();
                 break;
             case "GoToBoss":
                 //SceneManager.LoadScene(5);
