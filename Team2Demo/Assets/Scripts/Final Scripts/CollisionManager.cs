@@ -119,6 +119,7 @@ public class CollisionManager : MonoBehaviour
         // Display the loading image for a few seconds
         sceneTransitionBoss.SetActive(true);
         yield return new WaitForSeconds(waitTime);
+        sceneTransitionBoss.SetActive(false);
         ScenesManagerSingleton.Instance.LoadLevelBoss();
     }
 
