@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] GameObject loseMenu;
     [SerializeField] GameObject winMenu;
-
+    [SerializeField] GameObject sceneTransitionOne;
+    [SerializeField] GameObject sceneTransitionTwo;
+    [SerializeField] GameObject sceneTransitionThree;
+    [SerializeField] GameObject sceneTransitionBoss;
 
 
     // Cached References 
@@ -15,6 +19,9 @@ public class CollisionManager : MonoBehaviour
 
     // Audio Clips
     [SerializeField] public AudioClip playerDeath;
+
+
+    float waitTime = 3f;
 
     void Awake()
     {
@@ -27,15 +34,18 @@ public class CollisionManager : MonoBehaviour
         {
             case "GoToOne":
                 //SceneManager.LoadScene(2);
-                ScenesManagerSingleton.Instance.LoadLevelOne();
+                StartCoroutine(TransitionOne());
+                //ScenesManagerSingleton.Instance.LoadLevelOne();
                 break;
             case "GoToTwo":
                 //SceneManager.LoadScene(3);
-                ScenesManagerSingleton.Instance.LoadLevelTwo();
+                StartCoroutine(TransitionTwo());
+                //ScenesManagerSingleton.Instance.LoadLevelTwo();
                 break;
             case "GoToThree":
                 //SceneManager.LoadScene(4);
-                ScenesManagerSingleton.Instance.LoadLevelThree();
+                StartCoroutine(TransitionThree());
+                //ScenesManagerSingleton.Instance.LoadLevelThree();
                 break;
             case "GoToWin":
                 //SceneManager.LoadScene(6);
@@ -47,10 +57,11 @@ public class CollisionManager : MonoBehaviour
                 break;
             case "GoToBoss":
                 //SceneManager.LoadScene(5);
-                ScenesManagerSingleton.Instance.LoadLevelBoss();
+                 StartCoroutine(TransitionBoss());
+                //ScenesManagerSingleton.Instance.LoadLevelBoss();
                 break;
             case "GoToHub":
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
                 //ScenesManagerSingleton.Instance.LoadScene("Level 1");
                 break;
             case "DeathPlatform":
@@ -78,4 +89,38 @@ public class CollisionManager : MonoBehaviour
         }
         
     }
+
+    private IEnumerator TransitionOne()
+    {
+        // Display the loading image for a few seconds
+        sceneTransitionOne.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        ScenesManagerSingleton.Instance.LoadLevelOne();
+    }
+
+    private IEnumerator TransitionTwo()
+    {
+        // Display the loading image for a few seconds
+        sceneTransitionTwo.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        ScenesManagerSingleton.Instance.LoadLevelTwo();
+    }
+
+    private IEnumerator TransitionThree()
+    {
+        // Display the loading image for a few seconds
+        sceneTransitionThree.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        ScenesManagerSingleton.Instance.LoadLevelThree();
+    }
+
+    private IEnumerator TransitionBoss()
+    {
+        // Display the loading image for a few seconds
+        sceneTransitionBoss.SetActive(true);
+        yield return new WaitForSeconds(waitTime);
+        ScenesManagerSingleton.Instance.LoadLevelBoss();
+    }
+
+
 }

@@ -50,8 +50,8 @@ public class MovementController : MonoBehaviour
 
 
     // Static Variables
-    public static bool isEMPActivated = true;
-    public static bool isInvisibilityActivated = true;
+    public static bool isEMPActivated = false;
+    public static bool isInvisibilityActivated = false;
 
 
     void Awake()

@@ -82,28 +82,28 @@ public class UICanvasController : MonoBehaviour
     void LoadLevelOne()
     {
         //ScenesManagerSingleton.Instance.LoadLevelOne();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
         Time.timeScale = 1f;
     }
 
     void LoadLevelTwo()
     {
         //ScenesManagerSingleton.Instance.LoadLevelOne();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
         Time.timeScale = 1f;
     }
 
     void LoadLevelThree()
     {
         //ScenesManagerSingleton.Instance.LoadLevelOne();
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
         Time.timeScale = 1f;
     }
 
     void LoadLevelBoss()
     {
         //ScenesManagerSingleton.Instance.LoadLevelOne();
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
         Time.timeScale = 1f;
     }
 

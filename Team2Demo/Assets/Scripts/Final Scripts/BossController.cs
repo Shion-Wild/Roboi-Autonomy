@@ -14,6 +14,10 @@ public class BossController : MonoBehaviour
     public GameObject CutCam;
     public GameObject PlayerCam;
 
+    [SerializeField] GameObject winMenu;
+
+    float waitTime = 3f;
+
     void Start()
     {
         consolesDestroyed = 0;
@@ -24,22 +28,7 @@ public class BossController : MonoBehaviour
     {
         if (consolesDestroyed >= 3)
         {
-            //Disable playerCam and enable cutCam to display boss explosion
-            PlayerCam.SetActive(false);
-            CutCam.SetActive(true);
-            // Destroy Boss AI controller to make him stop moving
-            Destroy(bossAI);
-
-            // Call BossDestroyed function to play Animation
-            Instantiate(BoomFXOne, BoomFXOneLocation.transform.position, Quaternion.identity);
-            Instantiate(BoomFXTwo, BoomFXTwoLocation.transform.position, Quaternion.identity);
-
-            Destroy(BoomFXOne.gameObject);
-            Destroy(BoomFXTwo.gameObject);
-
-
-
-            // Call Win Scene
+            StartCoroutine(BossWinTransition());
         }
         
     }
@@ -60,5 +49,26 @@ public class BossController : MonoBehaviour
     {
         consolesDestroyed++;
         Debug.Log("Console Three Destroyed!");
+        
+
+    }
+
+    private IEnumerator BossWinTransition()
+    {
+        //Disable playerCam and enable cutCam to display boss explosion
+        PlayerCam.SetActive(false);
+        CutCam.SetActive(true);
+
+        Instantiate(BoomFXOne, BoomFXOneLocation.transform.position, Quaternion.identity);
+        Instantiate(BoomFXTwo, BoomFXTwoLocation.transform.position, Quaternion.identity);
+
+        Destroy(bossAI);
+
+        yield return new WaitForSeconds(waitTime);
+
+        //Destroy(BoomFXOne.gameObject);
+        //Destroy(BoomFXTwo.gameObject);
+
+        winMenu.SetActive(true);
     }
 }
